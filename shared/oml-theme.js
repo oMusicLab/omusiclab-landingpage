@@ -1,4 +1,22 @@
 (function () {
+  var FAVICON_HREF = "/assets/favicon.svg";
+
+  function ensureFavicon() {
+    if (!document.head) return;
+    var hasIcon = document.querySelector('link[rel~="icon"][href="' + FAVICON_HREF + '"]');
+    if (hasIcon) return;
+
+    ["icon", "shortcut icon", "apple-touch-icon"].forEach(function (rel) {
+      var link = document.createElement("link");
+      link.rel = rel;
+      link.href = FAVICON_HREF;
+      if (rel !== "apple-touch-icon") link.type = "image/svg+xml";
+      document.head.appendChild(link);
+    });
+  }
+
+  ensureFavicon();
+
   var STORAGE = "oml-theme-preference";
 
   function resolve(pref) {

@@ -1,5 +1,5 @@
 (function () {
-  var HOME_HREF = "../omusiclab-legacy-ui/omusiclab-legacy-ui-kit.html#home";
+  var HOME_HREF = "../index.html#home";
   var LOGO_VIEWBOX = "80 220 445 400";
   var LOGO_MARK =
     '<polygon class="oml-logo-mark" points="403.835,446.915 337.365,436.46 246.5,455.84 187.085,467.4 121.55,455.84 159.8,542.03 246.5,582.065 339.15,562.09 393.21,497.405" />';

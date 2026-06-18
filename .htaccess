@@ -15,9 +15,16 @@ ServerSignature Off
   RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)$ [NC]
   RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
 
+  # Favicon — browsers often request /favicon.ico by default
+  RewriteRule ^favicon\.ico$ assets/favicon.svg [L]
+
   # Legacy WordPress paths → landing page home
-  RewriteRule ^chord-diagram-generator/?$ omusiclab-legacy-ui/omusiclab-legacy-ui-kit.html [R=301,L]
-  RewriteRule ^virtual-instrument/piano/?$ omusiclab-legacy-ui/omusiclab-legacy-ui-kit.html [R=301,L]
+  RewriteRule ^chord-diagram-generator/?$ / [R=301,L]
+  RewriteRule ^virtual-instrument/piano/?$ / [R=301,L]
+
+  # Former omusiclab-legacy-ui paths → site root
+  RewriteRule ^omusiclab-legacy-ui/omusiclab-legacy-ui-kit\.html$ / [R=301,L]
+  RewriteRule ^omusiclab-legacy-ui/(.*)$ /$1 [R=301,L]
 
   # Block source, tooling, and dependency paths from the web
   RewriteRule ^(?:\.git|\.cursor|node_modules|scripts|templates)(?:/|$) - [F,L]
@@ -62,7 +69,7 @@ ServerSignature Off
 # -----------------------------------------------------------------------------
 # Site entry
 # -----------------------------------------------------------------------------
-DirectoryIndex index.html omusiclab-legacy-ui/omusiclab-legacy-ui-kit.html
+DirectoryIndex index.html
 
 # -----------------------------------------------------------------------------
 # Caching (public assets only)
