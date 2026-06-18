@@ -1,0 +1,49 @@
+.oml-theme-toggle,
+.site-theme-toggle {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  padding: 0.15rem;
+  border: 1px solid var(--site-border);
+  border-radius: 0.5rem;
+  background: var(--oml-panel);
+  flex-shrink: 0;
+}
+
+.oml-theme-btn,
+.site-theme-btn {
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  padding: 0;
+  border: none;
+  border-radius: 0.35rem;
+  background: transparent;
+  color: var(--site-muted);
+  cursor: pointer;
+}
+
+.oml-theme-btn:hover,
+.site-theme-btn:hover {
+  color: var(--oml-text);
+  background: var(--site-bg);
+}
+
+.oml-theme-btn.is-active,
+.site-theme-btn.is-active {
+  color: var(--oml-accent-text);
+  background: var(--site-bg);
+  box-shadow: 0 0 0 1px var(--site-border);
+}
+
+.oml-theme-btn svg,
+.site-theme-btn svg {
+  width: 1.05rem;
+  height: 1.05rem;
+  stroke: currentColor;
+  fill: none;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}

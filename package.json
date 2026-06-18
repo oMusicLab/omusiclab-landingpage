@@ -1,0 +1,8 @@
+{
+  "name": "omusiclab-landingpage",
+  "private": true,
+  "scripts": {
+    "docs:dev": "cd docs && npx mintlify dev",
+    "docs:install": "npm install -g mintlify"
+  }
+}

@@ -1,0 +1,87 @@
+# omusiclab landing page — Apache security hardening
+# Requires: mod_headers, mod_rewrite (recommended), AllowOverride enabled
+
+# -----------------------------------------------------------------------------
+# Core hardening
+# -----------------------------------------------------------------------------
+Options -Indexes -MultiViews
+ServerSignature Off
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Force HTTPS (skip on local/dev hosts if needed)
+  RewriteCond %{HTTPS} !=on
+  RewriteCond %{HTTP_HOST} !^(localhost|127\.0\.0\.1)$ [NC]
+  RewriteRule ^ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+
+  # Legacy WordPress paths → landing page home
+  RewriteRule ^chord-diagram-generator/?$ omusiclab-legacy-ui/omusiclab-legacy-ui-kit.html [R=301,L]
+  RewriteRule ^virtual-instrument/piano/?$ omusiclab-legacy-ui/omusiclab-legacy-ui-kit.html [R=301,L]
+
+  # Block source, tooling, and dependency paths from the web
+  RewriteRule ^(?:\.git|\.cursor|node_modules|scripts|templates)(?:/|$) - [F,L]
+
+  # Block hidden files and directories (e.g. .env, .htaccess is still served by Apache)
+  RewriteRule (^|/)\. - [F,L]
+</IfModule>
+
+# Only allow read-only methods for this static site
+<LimitExcept GET HEAD>
+  Require all denied
+</LimitExcept>
+
+# Deny direct access to sensitive file types
+<FilesMatch "(?i)\.(?:env|log|ini|sql|bak|old|swp|dist|config|md|markdown|json|lock|mjs|cjs|ts|tsx|jsx|yml|yaml|toml|gitignore|gitattributes)$">
+  Require all denied
+</FilesMatch>
+
+# -----------------------------------------------------------------------------
+# Security headers
+# -----------------------------------------------------------------------------
+<IfModule mod_headers.c>
+  Header always set X-Content-Type-Options "nosniff"
+  Header always set X-Frame-Options "SAMEORIGIN"
+  Header always set Referrer-Policy "strict-origin-when-cross-origin"
+  Header always set Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=(), usb=(), interest-cohort=()"
+  Header always set Cross-Origin-Opener-Policy "same-origin"
+  Header always set Cross-Origin-Resource-Policy "same-site"
+  Header always set X-Permitted-Cross-Domain-Policies "none"
+
+  # HSTS — only send over HTTPS
+  Header always set Strict-Transport-Security "max-age=31536000; includeSubDomains; preload" env=HTTPS
+
+  # CSP tuned for inline kit CSS/JS, Google Fonts, and Buy Me a Coffee widget
+  Header always set Content-Security-Policy "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'self'; object-src 'none'; script-src 'self' 'unsafe-inline' https://cdnjs.buymeacoffee.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com data:; img-src 'self' data: https:; connect-src 'self' https://cdnjs.buymeacoffee.com; frame-src https://cdnjs.buymeacoffee.com; upgrade-insecure-requests"
+
+  # Strip technology fingerprints where possible
+  Header unset X-Powered-By
+  Header unset Server
+</IfModule>
+
+# -----------------------------------------------------------------------------
+# Site entry
+# -----------------------------------------------------------------------------
+DirectoryIndex index.html omusiclab-legacy-ui/omusiclab-legacy-ui-kit.html
+
+# -----------------------------------------------------------------------------
+# Caching (public assets only)
+# -----------------------------------------------------------------------------
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/css "access plus 1 week"
+  ExpiresByType image/svg+xml "access plus 1 month"
+  ExpiresByType image/png "access plus 1 month"
+  ExpiresByType image/jpeg "access plus 1 month"
+  ExpiresByType image/webp "access plus 1 month"
+  ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "\.(?:css|svg|png|jpe?g|webp|woff2?)$">
+    Header set Cache-Control "public, max-age=604800, immutable"
+  </FilesMatch>
+  <FilesMatch "\.(?:html?)$">
+    Header set Cache-Control "no-cache"
+  </FilesMatch>
+</IfModule>

@@ -1,0 +1,78 @@
+/* Shared omusiclab mark — viewBox includes padding so the flask is not clipped */
+.oml-brand,
+.site-brand {
+  display: inline-flex;
+  align-items: center;
+  flex-shrink: 0;
+  text-decoration: none;
+  color: inherit;
+  line-height: 0;
+  overflow: visible;
+  padding: 0.2rem 0;
+}
+
+.oml-brand:hover,
+.site-brand:hover {
+  text-decoration: none;
+  opacity: 0.88;
+}
+
+.oml-brand-logo,
+.site-brand-logo {
+  display: block;
+  flex-shrink: 0;
+  width: 2.15rem;
+  height: 2.15rem;
+  overflow: visible;
+}
+
+.oml-logo-mark {
+  fill: var(--oml-brand-green);
+}
+
+.oml-logo-line {
+  fill: var(--oml-text);
+}
+
+.oml-logo-type {
+  fill: var(--oml-text);
+}
+
+.oml-logo-letter-lavender {
+  fill: var(--oml-brand-lavender-text);
+}
+
+.oml-logo-letter-cyan {
+  fill: var(--oml-brand-cyan-text);
+}
+
+.oml-logo-letter-rose {
+  fill: var(--oml-brand-rose-text);
+}
+
+.oml-logo-letter-mint {
+  fill: var(--oml-brand-mint-text);
+}
+
+.oml-logo-letter-cream {
+  fill: var(--oml-brand-cream-text);
+}
+
+.oml-brand:has(span),
+.site-brand:has(span) {
+  gap: 0.55rem;
+  line-height: 1.2;
+}
+
+.oml-brand span {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+@media (max-width: 520px) {
+  .oml-brand-logo,
+  .site-brand-logo {
+    width: 1.9rem;
+    height: 1.9rem;
+  }
+}

@@ -23,6 +23,22 @@
     <meta name="twitter:title" content="omusiclab — musician tools &amp; learning resources" />
     <meta name="twitter:description" content="Small, focused utilities for everyday practice — metronome, tuner, chord transposer, and more." />
     <meta name="twitter:image" content="https://www.omusiclab.com/omusiclab-legacy-ui/assets/images/hero-metronome.png" />
+    <script>
+      // Check if the user is visiting via the vercel.app URL
+      if (window.location.hostname.endsWith('.vercel.app')) {
+        // Attempt to ping your custom domain silently
+        fetch('https://omusiclab.com', { mode: 'no-cors' })
+          .then(() => {
+            // If successful, redirect to the custom domain
+            window.location.replace('https://omusiclab.com' + window.location.pathname);
+          })
+          .catch(() => {
+            // If the custom domain is expired/dead, do nothing 
+            // The user stays safely on the vercel.app URL
+            console.log('Custom domain unavailable, staying on vercel.app');
+          });
+      }
+    </script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -1585,7 +1601,7 @@
                   Find more in the <a href="#collection">Collection</a>.
                 </p>
                 <div class="oml-home-actions">
-                  <a class="oml-btn-primary" href="https://tools.omusiclab.com/">Explore tools</a>
+                  <a class="oml-btn-primary" href="https://omusiclab-tools.vercel.app/">Explore tools</a>
                   <a class="oml-btn-outline" href="#collection">Browse Collection</a>
                 </div>
               </div>
@@ -1622,7 +1638,7 @@
                 Find more in the <a href="#collection">Collection</a>.
               </p>
               <div class="oml-home-actions">
-                <a class="oml-btn-primary" href="https://tools.omusiclab.com/">Explore tools</a>
+                <a class="oml-btn-primary" href="https://omusiclab-tools.vercel.app/">Explore tools</a>
                 <a class="oml-btn-outline" href="#collection">Browse Collection</a>
               </div>
             </div>
@@ -1639,19 +1655,19 @@
 
             <h2 class="oml-home-section-title">Practice tools</h2>
             <div class="oml-home-feature-grid">
-              <a class="oml-home-feature" href="https://tools.omusiclab.com/metronome/">
+              <a class="oml-home-feature" href="https://omusiclab-tools.vercel.app/virtual-metronome/">
                 <h3>Metronome</h3>
                 <p>
                   Follow the beat — set a tempo, tap it in, and keep steady time while you practice.
                 </p>
               </a>
-              <a class="oml-home-feature" href="https://tools.omusiclab.com/tuner/">
+              <a class="oml-home-feature" href="https://omusiclab-tools.vercel.app/virtual-tuner/">
                 <h3>Tuner</h3>
                 <p>
                   Get the tuning right — guitar, ukulele, and violin modes with a clear pitch readout from your mic.
                 </p>
               </a>
-              <a class="oml-home-feature" href="https://tools.omusiclab.com/transposer/">
+              <a class="oml-home-feature" href="https://omusiclab-tools.vercel.app/virtual-chord-transposer/">
                 <h3>Chord Transposer</h3>
                 <p>
                   Handy chord transposing — paste your chords and move them to the key you’re actually playing in.
@@ -1663,7 +1679,7 @@
             <div class="oml-home-feature-grid">
               <a
                 class="oml-home-feature oml-home-feature--external"
-                href="https://www.omusiclab.com/wp-content/uploads/2023/04/oMusicLab-%E2%80%93-Blank-Guitar-Chord-Chart-Printable_Sheet_v1.0.pdf"
+                href="assets/printable/blank-guitar-chord-chart-printable-v1.0.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Guitar Chords Chart printable PDF (opens in a new tab)"
@@ -1678,7 +1694,7 @@
               </a>
               <a
                 class="oml-home-feature oml-home-feature--external"
-                href="https://www.omusiclab.com/wp-content/uploads/2023/04/oMusicLab-%E2%80%93-Blank-Ukulele-Chord-Chart-Printable_Sheet_v1.0.pdf"
+                href="assets/printable/blank-ukulele-chord-chart-printable-v1.0.pdf"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="Ukulele Chords Chart printable PDF (opens in a new tab)"
@@ -1732,21 +1748,45 @@
           </header>
 
           <div class="oml-home-feature-grid">
-            <a class="oml-home-feature" href="#home">
-              <h3>Chord Diagram Viewer</h3>
+            <a
+              class="oml-home-feature oml-home-feature--external"
+              href="https://omusiclab-tools.vercel.app/legacy/piano/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Piano chord viewer (opens in a new tab)"
+            >
+              <h3 class="oml-home-feature-title">
+                <span>Piano chord viewer</span>
+                <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              </h3>
+              <p>
+                See piano chords on a virtual keyboard — handy for checking spellings and inversions away from the fretboard.
+              </p>
+            </a>
+            <a
+              class="oml-home-feature oml-home-feature--external"
+              href="https://omusiclab-tools.vercel.app/legacy/chord-diagram-generator-v2/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Chord diagram viewer (opens in a new tab)"
+            >
+              <h3 class="oml-home-feature-title">
+                <span>Chord diagram viewer</span>
+                <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              </h3>
               <p>
                 See how fret numbers map to fingers and open strings — a visual-first path through guitar and ukulele diagrams without drowning in prose.
               </p>
             </a>
             <a
               class="oml-home-feature oml-home-feature--external"
-              href="https://tabs.omusiclab.com/"
+              href="https://omusiclab-tools.vercel.app/legacy/tabs-generator-v2/"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Basic Tabs Generator (opens in a new tab)"
+              aria-label="Basic tabs generator (opens in a new tab)"
             >
               <h3 class="oml-home-feature-title">
-                <span>Basic Tabs Generator</span>
+                <span>Basic tabs generator</span>
                 <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
               </h3>
               <p>
@@ -1755,7 +1795,7 @@
             </a>
             <a
               class="oml-home-feature oml-home-feature--external"
-              href="https://musictools.chiedimla.com/chord-diagram-generator/"
+              href="https://omusiclab-tools.vercel.app/legacy/chord-diagram-generator/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Simple guitar and ukulele chord diagram finder (opens in a new tab)"
@@ -1770,7 +1810,7 @@
             </a>
             <a
               class="oml-home-feature oml-home-feature--external"
-              href="https://musictools.chiedimla.com/tabs-generator/"
+              href="https://omusiclab-tools.vercel.app/legacy/tabs-generator/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Simple guitar and ukulele tabs editor (opens in a new tab)"
@@ -1785,7 +1825,7 @@
             </a>
             <a
               class="oml-home-feature oml-home-feature--external"
-              href="https://musictools.chiedimla.com/scale-generator/"
+              href="https://omusiclab-tools.vercel.app/legacy/scale-generator/"
               target="_blank"
               rel="noopener noreferrer"
               aria-label="Guitar and ukulele music scale generator (opens in a new tab)"
@@ -1796,12 +1836,6 @@
               </h3>
               <p>
                 Explore scales on guitar and ukulele fingerboards — pick a root and pattern to see notes laid out on the fretboard.
-              </p>
-            </a>
-            <a class="oml-home-feature" href="#home" aria-label="Piano chord viewer">
-              <h3>Piano chord viewer</h3>
-              <p>
-                See piano chords on a virtual keyboard — handy for checking spellings and inversions away from the fretboard.
               </p>
             </a>
           </div>

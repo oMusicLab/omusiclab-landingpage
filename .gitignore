@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Local Python deps (dev tooling)
+.pydeps/
+
+# Dev scripts and tooling
+scripts/
+
+# Project-local dev content
+docs/
+templates/
+
+# OS
+.DS_Store
+
+# Environment
+.env
+.env.*
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*

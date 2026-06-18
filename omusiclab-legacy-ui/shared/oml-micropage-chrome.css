@@ -1,0 +1,77 @@
+.oml-shell {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.oml-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 0.75rem 1.25rem;
+  border-bottom: 1px solid var(--site-border);
+  background: var(--site-topbar-bg);
+  backdrop-filter: blur(10px);
+}
+
+.oml-topbar-end {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-shrink: 0;
+}
+
+.oml-back {
+  font-size: 0.82rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--oml-muted);
+  white-space: nowrap;
+}
+
+.oml-back:hover {
+  color: var(--oml-accent-text);
+  text-decoration: none;
+}
+
+.oml-main {
+  flex: 1;
+  width: min(100%, var(--oml-page-wide));
+  margin: 0 auto;
+  padding: 2.5rem 1.25rem 3rem;
+}
+
+.oml-hero {
+  max-width: var(--oml-page-max);
+  margin-bottom: 2.5rem;
+}
+
+.oml-footer {
+  margin-top: auto;
+  padding: 0.9rem 1.25rem;
+  border-top: 1px solid var(--site-border);
+  background: var(--oml-footer);
+  font-size: 0.78rem;
+  color: var(--oml-muted);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  .oml-main {
+    padding-top: 1.75rem;
+  }
+
+  .oml-topbar {
+    flex-wrap: wrap;
+    gap: 0.65rem;
+  }
+
+  .oml-topbar-end {
+    width: 100%;
+    justify-content: space-between;
+  }
+}
