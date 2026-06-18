@@ -1,0 +1,2010 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>omusiclab — musician tools &amp; learning resources</title>
+    <meta name="description" content="omusiclab offers small, focused musician tools for everyday practice — metronome, tuner, chord transposer, printable chord sheets, and LitePresenter experiments." />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="author" content="omusiclab" />
+    <meta name="theme-color" content="#106347" />
+    <link rel="canonical" href="https://www.omusiclab.com/" />
+    <link rel="icon" href="assets/oml-logo-02-icon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="assets/oml-logo-02-icon.svg" />
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="omusiclab" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:title" content="omusiclab — musician tools &amp; learning resources" />
+    <meta property="og:description" content="Small, focused utilities for everyday practice — follow the beat, get the tuning right, and transpose chords when the song isn’t in your key." />
+    <meta property="og:url" content="https://www.omusiclab.com/" />
+    <meta property="og:image" content="https://www.omusiclab.com/omusiclab-legacy-ui/assets/images/hero-metronome.png" />
+    <meta property="og:image:alt" content="omusiclab metronome tool preview" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="omusiclab — musician tools &amp; learning resources" />
+    <meta name="twitter:description" content="Small, focused utilities for everyday practice — metronome, tuner, chord transposer, and more." />
+    <meta name="twitter:image" content="https://www.omusiclab.com/omusiclab-legacy-ui/assets/images/hero-metronome.png" />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://www.omusiclab.com/#organization",
+            "name": "omusiclab",
+            "url": "https://www.omusiclab.com/",
+            "logo": {
+              "@type": "ImageObject",
+              "url": "https://www.omusiclab.com/omusiclab-legacy-ui/assets/oml-logo-02-icon.svg"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://www.omusiclab.com/#website",
+            "url": "https://www.omusiclab.com/",
+            "name": "omusiclab",
+            "description": "Learning resources and musician tools for everyday practice.",
+            "publisher": { "@id": "https://www.omusiclab.com/#organization" },
+            "inLanguage": "en"
+          }
+        ]
+      }
+    </script>
+    <script src="shared/oml-theme.js"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700&display=swap" />
+    <link rel="stylesheet" href="shared/oml-tokens.css" />
+    <link rel="stylesheet" href="shared/oml-base.css" />
+    <link rel="stylesheet" href="shared/oml-brand.css" />
+    <link rel="stylesheet" href="shared/oml-components.css" />
+    <link rel="stylesheet" href="shared/oml-theme-toggle.css" />
+    <style>
+      :root {
+        color-scheme: light;
+        --oml-accent: aquamarine;
+        --oml-danger: #c43;
+        --oml-warn: #b45309;
+        --oml-info: #0e7490;
+        --oml-success-bg: rgba(16, 99, 71, 0.08);
+        --oml-success-border: rgba(16, 99, 71, 0.35);
+        --oml-accent-soft: rgba(16, 99, 71, 0.35);
+        --oml-accent-strong: rgba(16, 99, 71, 0.55);
+        --oml-accent-border: rgba(16, 99, 71, 0.45);
+        --oml-focus-border: rgba(16, 99, 71, 0.35);
+        --oml-hover-soft: rgba(16, 99, 71, 0.06);
+        --oml-hover-bg: rgba(16, 99, 71, 0.1);
+        --oml-tab-active-bg: rgba(16, 99, 71, 0.08);
+        --oml-toggle-on-bg: rgba(16, 99, 71, 0.06);
+        --oml-switch-track: rgba(51, 51, 51, 0.15);
+        --oml-switch-on: rgba(16, 99, 71, 0.35);
+        --oml-switch-thumb: #ffffff;
+        --oml-pre-bg: #1a1c22;
+        --oml-pre-fg: #e8e8e8;
+        --oml-mark-bg: rgba(127, 255, 212, 0.45);
+        --oml-overlay: rgba(0, 0, 0, 0.35);
+        --oml-inset-shadow: rgba(0, 0, 0, 0.5);
+        --oml-info-bg: rgba(14, 116, 144, 0.06);
+        --oml-info-border: rgba(14, 116, 144, 0.25);
+        --oml-warn-bg: rgba(180, 83, 9, 0.06);
+        --oml-warn-border: rgba(180, 83, 9, 0.3);
+        --oml-error-bg: rgba(204, 68, 51, 0.06);
+        --oml-error-border: rgba(204, 68, 51, 0.35);
+        --oml-danger-hover: rgba(204, 68, 51, 0.06);
+        --oml-brand-purple: #9782db;
+        --oml-brand-cyan: #ccf4fc;
+        --oml-brand-rose: #fcdcdc;
+        --oml-brand-cream: #fcf4d4;
+        --oml-brand-mint: #ccfce4;
+        --sidebar-w: 15rem;
+        --site-content-max: 44rem;
+        --site-home-max: 58rem;
+        --site-topbar-offset: 3.55rem;
+        --site-footer-offset: 3.15rem;
+      }
+      [data-theme="dark"] {
+        color-scheme: dark;
+        --oml-success-bg: rgba(92, 224, 168, 0.12);
+        --oml-success-border: rgba(92, 224, 168, 0.35);
+        --oml-accent-soft: rgba(92, 224, 168, 0.35);
+        --oml-accent-strong: rgba(92, 224, 168, 0.55);
+        --oml-accent-border: rgba(92, 224, 168, 0.45);
+        --oml-focus-border: rgba(92, 224, 168, 0.45);
+        --oml-hover-soft: rgba(92, 224, 168, 0.08);
+        --oml-hover-bg: rgba(92, 224, 168, 0.15);
+        --oml-tab-active-bg: rgba(92, 224, 168, 0.12);
+        --oml-toggle-on-bg: rgba(92, 224, 168, 0.12);
+        --oml-switch-track: rgba(255, 255, 255, 0.12);
+        --oml-switch-on: rgba(92, 224, 168, 0.35);
+        --oml-switch-thumb: #e8eaee;
+        --oml-pre-bg: #0a0d12;
+        --oml-pre-fg: #e8eaee;
+        --oml-mark-bg: rgba(127, 255, 212, 0.22);
+        --oml-overlay: rgba(0, 0, 0, 0.65);
+        --oml-inset-shadow: rgba(0, 0, 0, 0.45);
+        --oml-info-bg: rgba(14, 116, 144, 0.15);
+        --oml-info-border: rgba(14, 116, 144, 0.35);
+        --oml-warn-bg: rgba(180, 83, 9, 0.15);
+        --oml-warn-border: rgba(180, 83, 9, 0.4);
+        --oml-error-bg: rgba(204, 68, 51, 0.12);
+        --oml-error-border: rgba(204, 68, 51, 0.4);
+        --oml-danger-hover: rgba(204, 68, 51, 0.12);
+        --oml-brand-purple: #b9a8e8;
+      }
+      body {
+        margin: 0;
+        font-family: "Poppins", -apple-system, BlinkMacSystemFont, sans-serif;
+        background: var(--site-bg);
+        color: var(--oml-text);
+        font-size: 16px;
+        line-height: 1.6;
+        padding-bottom: var(--site-footer-offset);
+      }
+      .site-topbar {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        min-height: 3.35rem;
+        height: auto;
+        border-bottom: 1px solid var(--site-border);
+        background: var(--site-topbar-bg);
+        backdrop-filter: blur(10px);
+        display: flex;
+        align-items: center;
+        padding: 0.55rem 1.25rem;
+      }
+      .site-topbar-inner {
+        width: 100%;
+        max-width: var(--site-home-max);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+        grid-template-areas: "brand nav theme";
+        align-items: center;
+        gap: 0.75rem 1rem;
+      }
+      .site-topbar-start { grid-area: brand; justify-self: start; min-width: 0; flex-shrink: 0; overflow: visible; }
+      .site-topbar-center { grid-area: nav; justify-self: center; min-width: 0; }
+      .site-topbar-end {
+        grid-area: theme;
+        justify-self: end;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        flex-shrink: 0;
+      }
+      .site-primary-nav {
+        display: flex;
+        align-items: center;
+        gap: 0.15rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+      }
+      .site-primary-nav li { margin: 0; min-width: 0; }
+      .nav-label-compact { display: none; }
+      .site-primary-nav button,
+      .site-primary-nav a[role="tab"] {
+        margin: 0;
+        padding: 0.45rem 0.75rem;
+        border: none;
+        border-radius: 0.35rem;
+        background: transparent;
+        font-family: inherit;
+        font-size: 0.84rem;
+        font-weight: 500;
+        color: var(--site-muted);
+        cursor: pointer;
+        line-height: 1.3;
+        text-decoration: none;
+      }
+      .site-primary-nav button:hover,
+      .site-primary-nav a[role="tab"]:hover {
+        color: var(--oml-text);
+        background: var(--site-accent-soft);
+      }
+      .site-primary-nav button:focus-visible,
+      .site-primary-nav a[role="tab"]:focus-visible {
+        outline: 2px solid var(--oml-accent-text);
+        outline-offset: 2px;
+      }
+      .site-primary-nav button.is-active,
+      .site-primary-nav a[role="tab"].is-active {
+        color: var(--oml-text);
+        font-weight: 600;
+        background: var(--site-accent-soft);
+      }
+
+      .site-brand-logos {
+        position: relative;
+        display: block;
+        width: 2.15rem;
+        height: 2.15rem;
+      }
+      .site-brand-logo--icon {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        transition: opacity 0.32s ease;
+      }
+      .site-brand-wordmark {
+        position: absolute;
+        left: 0;
+        top: 50%;
+        display: block;
+        width: 100%;
+        height: 1.55rem;
+        transform: translateY(-50%);
+        pointer-events: none;
+      }
+      .site-brand-wordmark .oml-home-hero-logo-svg {
+        display: block;
+        width: 100%;
+        height: 100%;
+        opacity: 0;
+        transform: translateX(-0.4rem);
+        transition:
+          opacity 0.32s ease 0.04s,
+          transform 0.42s cubic-bezier(0.22, 1, 0.36, 1) 0.04s;
+      }
+      .site-topbar--on-home .site-brand-logos {
+        width: 0;
+        overflow: hidden;
+        transition: width 0.42s cubic-bezier(0.22, 1, 0.36, 1);
+      }
+      .site-topbar--on-home .site-brand-logo--icon {
+        opacity: 0;
+        visibility: hidden;
+        transition: none;
+      }
+      .site-topbar--on-home.site-topbar--past-hero .site-brand-logos {
+        width: clamp(5.75rem, 24vw, 9rem);
+      }
+      .site-topbar--on-home.site-topbar--past-hero .site-brand-wordmark .oml-home-hero-logo-svg {
+        opacity: 1;
+        transform: translateX(0);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .site-topbar--on-home .site-brand-logos,
+        .site-brand-wordmark .oml-home-hero-logo-svg {
+          transition: none;
+        }
+      }
+      @media (max-width: 520px) {
+        .site-brand-logos {
+          width: 1.9rem;
+          height: 1.9rem;
+        }
+        .site-brand-wordmark {
+          height: 1.35rem;
+        }
+        .site-topbar--on-home.site-topbar--past-hero .site-brand-logos {
+          width: clamp(5rem, 42vw, 7.5rem);
+        }
+      }
+
+      .site-body {
+        max-width: var(--site-home-max);
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+        gap: 0 2.5rem;
+        padding: 0 1.5rem 4rem;
+      }
+      .site-body.site-body--wide {
+        max-width: 100%;
+        padding-inline: 0;
+      }
+
+
+
+      .site-view--home {
+        width: 100%;
+        max-width: none;
+        margin-inline: 0;
+        overflow-x: clip;
+      }
+      .site-home-contained {
+        width: 100%;
+        max-width: var(--site-home-max);
+        margin-inline: auto;
+        padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+        box-sizing: border-box;
+      }
+      .site-home-full {
+        width: 100%;
+        max-width: none;
+        margin-inline: 0;
+      }
+      .site-view--legacy,
+      .site-view--contributors {
+        max-width: min(100%, var(--site-home-max));
+        margin-inline: auto;
+        padding-inline: clamp(0.75rem, 3vw, 1.5rem);
+        box-sizing: border-box;
+        overflow-x: clip;
+      }
+
+      .oml-home-hero {
+        position: relative;
+        width: 100%;
+        max-width: none;
+        box-sizing: border-box;
+        padding: clamp(2.5rem, 6vw, 3.75rem) clamp(1.75rem, 5vw, 3rem);
+        margin: 0 0 2.75rem;
+        border-radius: 0.85rem;
+        background: color-mix(in srgb, var(--oml-panel) 90%, var(--oml-brand-green-soft));
+        border: 1px solid var(--site-border);
+        overflow: hidden;
+      }
+      .oml-home-hero-logo {
+        margin: 0 0 0.85rem;
+        line-height: 0;
+      }
+      .oml-home-hero-logo-svg {
+        display: block;
+        width: clamp(14rem, 42vw, 24rem);
+        height: auto;
+      }
+      .oml-home-hero-lead {
+        margin: 0;
+        max-width: 42rem;
+        font-size: 1rem;
+        line-height: 1.65;
+        color: var(--site-muted);
+      }
+      .oml-home-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.65rem;
+        margin-top: 1.5rem;
+      }
+      .oml-home-actions .oml-btn-outline {
+        display: inline-flex;
+        align-items: center;
+        padding: 0.55rem 1.1rem;
+        border-radius: 0.45rem;
+        border: 1px solid var(--site-border);
+        background: var(--site-bg);
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--oml-text);
+        cursor: pointer;
+        text-decoration: none;
+      }
+      .oml-home-actions .oml-btn-outline:hover {
+        border-color: var(--oml-accent-text);
+        color: var(--oml-accent-text);
+      }
+      .oml-home-actions .oml-btn-primary {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.55rem 1.15rem;
+        border-radius: 0.45rem;
+        border: 1px solid var(--oml-accent-text);
+        background: var(--oml-accent-text);
+        font-family: inherit;
+        font-size: 0.85rem;
+        font-weight: 600;
+        color: var(--oml-on-accent);
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .oml-home-actions .oml-btn-primary:hover { filter: brightness(1.08); }
+      .oml-home-hero--wide {
+        width: 100%;
+        max-width: none;
+        margin: 0 0 2.75rem;
+        border-radius: 0;
+        border-left: none;
+        border-right: none;
+        border-top: none;
+        padding: clamp(2.75rem, 7vw, 4.5rem) clamp(1.5rem, 5vw, 3.5rem);
+        min-height: clamp(22rem, 52vh, 32rem);
+      }
+      .oml-home-hero-wide-inner {
+        display: grid;
+        grid-template-columns: minmax(0, 1.05fr) minmax(16rem, 0.95fr);
+        gap: clamp(1.5rem, 4vw, 3.5rem);
+        align-items: center;
+        max-width: 72rem;
+        margin: 0 auto;
+      }
+      .oml-home-hero-copy {
+        position: relative;
+        z-index: 2;
+        min-width: 0;
+      }
+      .oml-home-hero-photos {
+        position: relative;
+        min-height: clamp(16rem, 34vw, 22rem);
+        isolation: isolate;
+      }
+      .oml-home-hero-photo {
+        position: absolute;
+        width: min(72%, 17.5rem);
+        aspect-ratio: 4 / 5;
+        border-radius: 1rem;
+        border: 1px solid var(--site-border);
+        box-shadow:
+          0 22px 45px var(--oml-shadow-md),
+          0 6px 16px rgba(0, 0, 0, 0.08);
+        overflow: hidden;
+        will-change: transform;
+        background: var(--oml-surface);
+      }
+      .oml-home-hero-photo img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: top center;
+      }
+      .oml-home-hero-photo--back {
+        top: 6%;
+        left: 4%;
+        z-index: 1;
+      }
+      .oml-home-hero-photo--front {
+        top: 18%;
+        right: 2%;
+        z-index: 2;
+      }
+      @media (max-width: 820px) {
+        .oml-home-hero-wide-inner {
+          grid-template-columns: 1fr;
+        }
+        .oml-home-hero-photos {
+          min-height: 15rem;
+          max-width: 22rem;
+          margin: 0 auto;
+          width: 100%;
+        }
+        .oml-home-hero-photo {
+          width: min(68%, 14rem);
+        }
+      }
+      .oml-home-section-title {
+        margin: 2.25rem 0 1rem;
+        font-size: 0.72rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--site-muted);
+      }
+      .oml-home-feature-grid {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+        margin-bottom: 2rem;
+      }
+      .oml-home-feature {
+        padding: 1.2rem 1.25rem;
+        border: 1px solid var(--site-border);
+        border-radius: 0.65rem;
+        background: var(--oml-panel);
+      }
+      a.oml-home-feature {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+      a.oml-home-feature:hover {
+        border-color: var(--oml-accent-border);
+        box-shadow: 0 2px 10px var(--oml-shadow-sm);
+      }
+      a.oml-home-feature:hover h3,
+      a.oml-home-feature:hover .oml-home-feature-title { color: var(--oml-accent-text); }
+      .oml-home-feature h3,
+      .oml-home-feature-title {
+        margin: 0 0 0.5rem;
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--oml-text);
+      }
+      .oml-home-feature-title {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+      }
+      .oml-home-feature-external-icon {
+        width: 0.9rem;
+        height: 0.9rem;
+        flex-shrink: 0;
+        color: var(--site-muted);
+        transition: color 0.15s ease;
+      }
+      a.oml-home-feature--external:hover .oml-home-feature-external-icon {
+        color: var(--oml-accent-text);
+      }
+      .oml-home-feature p {
+        margin: 0;
+        font-size: 0.875rem;
+        line-height: 1.58;
+        color: var(--site-muted);
+      }
+      .oml-home-section-note {
+        margin: -0.35rem 0 1rem;
+        max-width: 38rem;
+        font-size: 0.875rem;
+        line-height: 1.58;
+        color: var(--site-muted);
+      }
+
+      .site-page-intro {
+        max-width: 38rem;
+        margin-bottom: 1.75rem;
+      }
+      .site-page-intro .site-lead { margin-bottom: 0; }
+
+      .site-main { min-width: 0; padding: 2.5rem 0 2rem; }
+      .site-main:has(#view-home:not([hidden])) {
+        padding-top: 0;
+      }
+
+      .site-page-header { margin-bottom: 2.5rem; }
+      .site-eyebrow {
+        margin: 0 0 0.5rem;
+        font-size: 0.78rem;
+        font-weight: 500;
+        color: var(--site-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+      }
+      .site-page-header h1,
+      .site-collection-heading {
+        margin: 0 0 0.75rem;
+        font-size: 2.25rem;
+        font-weight: 600;
+        letter-spacing: -0.03em;
+        line-height: 1.15;
+        color: var(--oml-text);
+      }
+      #collection {
+        scroll-margin-top: calc(var(--site-topbar-offset) + 1rem);
+      }
+      .site-lead {
+        margin: 0;
+        font-size: 1.05rem;
+        line-height: 1.65;
+        color: var(--site-muted);
+        max-width: 38rem;
+      }
+
+
+      .kit-section {
+        padding-top: 1.9rem;
+        margin-top: 1.9rem;
+        border-top: 1px solid var(--site-border);
+        scroll-margin-top: calc(var(--site-topbar-offset) + 1rem);
+      }
+      .kit-section:first-of-type { border-top: 0; margin-top: 0; padding-top: 0; }
+      .kit-heading {
+        margin: 0 0 0.5rem;
+        font-size: 1.125rem;
+        font-weight: 600;
+        letter-spacing: -0.01em;
+        color: var(--oml-text);
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+      }
+      .section-anchor {
+        font-size: 0.9em;
+        line-height: 1;
+        color: var(--site-muted);
+        text-decoration: none;
+        opacity: 0;
+        transform: translateY(1px);
+        transition: opacity 0.15s ease;
+      }
+      .kit-heading:hover .section-anchor {
+        opacity: 1;
+      }
+      .kit-text {
+        margin: 0 0 1.5rem;
+        font-size: 0.92rem;
+        line-height: 1.65;
+        color: var(--site-muted);
+        max-width: 36rem;
+      }
+      .kit-subheading {
+        margin: 1.75rem 0 0.75rem;
+        font-size: 0.95rem;
+        font-weight: 600;
+        color: var(--oml-text);
+      }
+      .kit-preview {
+        margin: 1rem 0 0;
+        padding: 1.25rem 0 0;
+      }
+      .kit-preview.bordered {
+        padding: 1.25rem;
+        border: 1px solid var(--site-border);
+        border-radius: 0.65rem;
+        background: var(--site-bg);
+      }
+      .kit-preview.panel {
+        padding: 1.25rem;
+        border-radius: 0.65rem;
+        background: var(--oml-panel);
+      }
+
+      .section-desc { font-size: 0.92rem; color: var(--site-muted); margin: 0 0 1.5rem; max-width: 36rem; line-height: 1.65; }
+      .kit-main h3, .kit-subheading { font-size: 0.95rem; font-weight: 600; color: var(--oml-text); margin: 1.75rem 0 0.75rem; text-transform: none; letter-spacing: 0; }
+      .demo-row { display: flex; flex-wrap: wrap; gap: 0.75rem; align-items: center; margin-bottom: 0.75rem; }
+      .demo-panel {
+        border: 1px solid var(--site-border);
+        border-radius: 0.65rem;
+        background: var(--site-bg);
+        padding: 1.25rem;
+        margin-bottom: 1rem;
+        max-width: 36rem;
+      }
+      .code {
+        font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.82em;
+        background: var(--oml-panel);
+        border: 1px solid var(--site-border);
+        border-radius: 0.35em;
+        padding: 0.12em 0.4em;
+        color: var(--oml-accent-text);
+      }
+      .hint { font-size: 0.8rem; color: var(--site-muted); margin-top: 1rem; line-height: 1.5; }
+
+      /* ── Ghost-style colour cards ── */
+      .colour-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(9.5rem, 1fr));
+        gap: 1.25rem 1.5rem;
+        max-width: 36rem;
+        margin: 1.5rem 0 0;
+      }
+      .colour-card { margin: 0; }
+      .colour-swatch {
+        height: 4.5rem;
+        border-radius: 0.5rem;
+        border: 1px solid var(--site-border);
+        margin-bottom: 0.75rem;
+      }
+      .colour-swatch.light { border-color: var(--oml-edge); }
+      .colour-name {
+        margin: 0 0 0.35rem;
+        font-size: 0.92rem;
+        font-weight: 600;
+        color: var(--oml-text);
+      }
+      .colour-token {
+        margin: 0 0 0.2rem;
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 0.78rem;
+        color: var(--oml-accent-text);
+      }
+      .colour-meta {
+        margin: 0;
+        font-size: 0.78rem;
+        line-height: 1.5;
+        color: var(--site-muted);
+      }
+      .colour-meta code {
+        font-family: ui-monospace, Menlo, monospace;
+        font-size: 0.95em;
+        background: none;
+        border: 0;
+        padding: 0;
+        color: inherit;
+      }
+      .spacing-table-wrap { overflow-x: auto; margin-top: 1.5rem; max-width: 36rem; }
+      .spacing-table { width: 100%; border-collapse: collapse; font-size: 0.84rem; }
+      .spacing-table th, .spacing-table td { text-align: left; padding: 0.55rem 0.75rem; border-bottom: 1px solid var(--site-border); vertical-align: top; }
+      .spacing-table th { font-weight: 600; color: var(--oml-text); }
+      .spacing-table td { color: var(--site-muted); }
+      .spacing-table code { font-family: ui-monospace, Menlo, monospace; font-size: 0.9em; color: var(--oml-accent-text); }
+
+      /* ── Typography (HTML5 text) ── */
+      .type-block h1 { font-size: 1.75rem; font-weight: 600; margin: 0 0 0.5rem; letter-spacing: -0.02em; }
+      .type-block h2 { font-size: 1.35rem; font-weight: 600; margin: 1rem 0 0.4rem; border: 0; padding: 0; }
+      .type-block h3 { font-size: 1.1rem; font-weight: 600; margin: 0.85rem 0 0.35rem; text-transform: none; letter-spacing: 0; color: var(--oml-text); }
+      .type-block h4 { font-size: 1rem; font-weight: 600; margin: 0.75rem 0 0.3rem; }
+      .type-block h5 { font-size: 0.9rem; font-weight: 600; margin: 0.65rem 0 0.25rem; text-transform: uppercase; letter-spacing: 0.04em; }
+      .type-block h6 { font-size: 0.8rem; font-weight: 600; margin: 0.5rem 0 0.2rem; color: var(--oml-muted); }
+      .type-block p { margin: 0.5rem 0; }
+      .type-block .lead { font-size: 1.05rem; color: var(--oml-muted); }
+      .type-block blockquote {
+        margin: 0.75rem 0; padding: 0.65rem 1rem;
+        border-left: 3px solid var(--oml-accent-text); background: var(--oml-success-bg); color: var(--oml-muted); font-size: 0.9em;
+      }
+      .type-block ul, .type-block ol { margin: 0.5rem 0; padding-left: 1.35rem; font-size: 0.9em; }
+      .type-block dl { margin: 0.5rem 0; font-size: 0.9em; }
+      .type-block dt { font-weight: 600; }
+      .type-block dd { margin: 0 0 0.5rem 0; color: var(--oml-muted); }
+      .type-block pre {
+        background: var(--oml-pre-bg); color: var(--oml-pre-fg); padding: 0.85rem 1rem; border-radius: 0.5em;
+        font-size: 0.78em; overflow-x: auto; margin: 0.5rem 0;
+      }
+      .type-block code { font-family: ui-monospace, Menlo, monospace; font-size: 0.88em; background: var(--oml-panel); padding: 0.1em 0.35em; border-radius: 0.25em; }
+      .type-block pre code { background: none; padding: 0; color: inherit; }
+      .type-block mark { background: var(--oml-mark-bg); padding: 0.1em 0.2em; }
+      .type-block small { font-size: 0.8em; color: var(--oml-muted); }
+      .type-block strong { font-weight: 600; }
+      .type-block em { font-style: italic; }
+      .type-block u { text-underline-offset: 2px; }
+      .type-block s { color: var(--oml-muted); }
+      .type-block abbr { border-bottom: 1px dotted var(--oml-edge); cursor: help; }
+      .type-block address { font-style: normal; font-size: 0.9em; color: var(--oml-muted); }
+      .type-block time { font-variant-numeric: tabular-nums; }
+      .type-block hr { border: 0; height: 1px; background: var(--oml-border); margin: 1.25rem 0; }
+      .subtle { font-size: 0.85em; color: var(--oml-muted); }
+      .tool-title { font-size: 1.25rem; font-weight: 600; margin: 0.25rem 0 1rem; }
+
+      /* ── Separators ── */
+      .separator-showcase {
+        max-width: 28rem;
+        border: 1px solid var(--oml-border);
+        border-radius: 0.5em;
+        background: var(--oml-surface);
+        padding: 1rem 1.15rem;
+      }
+      .separator-showcase .block-label {
+        font-size: 0.72em;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        color: var(--oml-muted);
+        font-weight: 600;
+        margin: 0 0 0.5rem;
+      }
+      .separator-showcase .sample-text {
+        font-size: 0.85em;
+        color: var(--oml-muted);
+        margin: 0;
+        line-height: 1.45;
+      }
+      .oml-separator {
+        border: 0;
+        height: 1px;
+        margin: 1rem 0;
+        background: linear-gradient(90deg, transparent, var(--oml-border) 15%, var(--oml-border) 85%, transparent);
+      }
+      .oml-separator.edge {
+        background: var(--oml-edge);
+        height: 1px;
+        margin: 1rem 0;
+      }
+      .oml-separator.accent {
+        height: 2px;
+        margin: 1.25rem 0;
+        background: linear-gradient(90deg, transparent, var(--oml-accent-soft) 20%, var(--oml-accent-strong) 50%, var(--oml-accent-soft) 80%, transparent);
+      }
+      .oml-separator.dotted {
+        height: 0;
+        border: 0;
+        border-top: 1px dotted var(--oml-edge);
+        background: none;
+        margin: 1rem 0;
+      }
+      .oml-separator.spacious { margin: 1.75rem 0; }
+      .oml-separator.inset {
+        margin: 1rem 0;
+        max-width: calc(100% - 1.5rem);
+        margin-left: auto;
+        margin-right: auto;
+      }
+      .oml-separator-label {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        font-size: 0.72em;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--oml-muted);
+        font-weight: 600;
+        margin: 1.25rem 0 1rem;
+      }
+      .oml-separator-label::before,
+      .oml-separator-label::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--oml-edge));
+      }
+      .oml-separator-label::after {
+        background: linear-gradient(90deg, var(--oml-edge), transparent);
+      }
+      .oml-separator-label strong {
+        color: var(--oml-accent-text);
+        font-weight: 600;
+      }
+      .oml-separator-with-icon {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 1.25rem 0;
+        font-size: 0.75em;
+        font-weight: 600;
+        color: var(--oml-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+      }
+      .oml-separator-with-icon::after {
+        content: "";
+        flex: 1;
+        height: 1px;
+        background: var(--oml-border);
+      }
+      .oml-separator-with-icon .oml-icon {
+        width: 1rem;
+        height: 1rem;
+        color: var(--oml-accent-text);
+      }
+      .oml-separator-vertical-wrap {
+        display: flex;
+        align-items: stretch;
+        gap: 0;
+        min-height: 3.5rem;
+        max-width: 20rem;
+        margin: 0.5rem 0 1rem;
+        border: 1px solid var(--oml-border);
+        border-radius: 0.5em;
+        overflow: hidden;
+        background: var(--oml-panel);
+      }
+      .oml-separator-vertical-wrap > span {
+        flex: 1;
+        padding: 0.65rem 0.85rem;
+        font-size: 0.8em;
+        color: var(--oml-muted);
+      }
+      .oml-separator-vertical {
+        width: 1px;
+        align-self: stretch;
+        background: linear-gradient(180deg, transparent, var(--oml-edge) 20%, var(--oml-edge) 80%, transparent);
+        flex-shrink: 0;
+      }
+      .oml-menu-divider {
+        list-style: none;
+        margin: 0;
+        padding: 0.35rem 0;
+        max-width: 14rem;
+        border: 1px solid var(--oml-border);
+        border-radius: 0.5em;
+        background: var(--site-bg);
+        padding: 0.45rem 0.85rem;
+        font-size: 0.85em;
+        font-weight: 500;
+      }
+      .oml-menu-divider li[role="separator"] {
+        padding: 0;
+        margin: 0.35rem 0;
+        height: 1px;
+        background: var(--oml-border);
+      }
+
+      /* ── Buttons ── */
+      button.primary, button.ghost, button.danger, button.icon-btn {
+        font-family: "Poppins", sans-serif; font-size: 0.85em; font-weight: 600;
+        padding: 0.55em 1.25em; border-radius: 0.5em; cursor: pointer;
+        border: 1px solid var(--oml-border); transition: background 0.2s, filter 0.2s, border-color 0.2s;
+      }
+      button.primary { background: var(--oml-accent-text); color: var(--oml-on-accent); border-color: var(--oml-accent-text); }
+      button.primary:hover { filter: brightness(1.06); }
+      button.ghost { background: var(--site-bg); color: var(--oml-text); }
+      button.ghost:hover { background: var(--oml-panel); }
+      button.danger { background: var(--site-bg); color: var(--oml-danger); border-color: var(--oml-error-border); }
+      button.danger:hover { background: var(--oml-danger-hover); }
+      button.sm { font-size: 0.78em; padding: 0.4em 0.9em; }
+      button.lg { font-size: 0.95em; padding: 0.65em 1.5em; }
+      button:disabled { opacity: 0.45; cursor: not-allowed; }
+      button:focus-visible { outline: 2px solid var(--oml-accent-text); outline-offset: 2px; }
+      button.icon-btn {
+        width: 2.25rem; height: 2.25rem; padding: 0; display: inline-grid; place-items: center;
+        background: var(--site-bg); color: var(--oml-text);
+      }
+      button.icon-btn:hover { background: var(--oml-panel); border-color: var(--oml-focus-border); }
+      .actions { display: flex; gap: 0.75rem; flex-wrap: wrap; align-items: center; }
+
+      /* ── Form controls ── */
+      .textbox label, .dropdown label {
+        display: inline-block; width: 9em; color: var(--oml-text);
+        font-size: 0.85em; text-transform: uppercase; font-weight: 500; line-height: 3em;
+      }
+      .field-label { display: block; font-size: 0.85em; text-transform: uppercase; font-weight: 500; margin-bottom: 0.35rem; }
+      input[type="text"], input[type="number"], input[type="email"], input[type="password"], input[type="url"], input[type="date"], input[type="time"], select, textarea.oml-field {
+        font-family: "Poppins", sans-serif; color: var(--oml-text); font-size: 0.85em; font-weight: 500;
+        background: var(--site-bg); border: 1px solid var(--oml-border); border-radius: 0.5em;
+        box-shadow: inset 0 0 2px -2px var(--oml-inset-shadow); transition: border-color 0.2s;
+      }
+      input[type="text"], input[type="number"], input[type="email"], input[type="password"], input[type="url"], input[type="date"], input[type="time"], select {
+        padding: 0.5em 1em; line-height: 1.7em; width: 100%; max-width: 16rem; margin: 0 0 0.5em;
+      }
+      input:focus, select:focus, textarea.oml-field:focus { outline: none; border-color: var(--oml-focus-border); }
+      textarea.oml-field { width: 100%; padding: 0.65em 0.85em; line-height: 1.45; resize: vertical; min-height: 5rem; }
+      input[type="range"] { width: 100%; max-width: 20rem; accent-color: var(--oml-accent-text); }
+      .checkbox-row, .radio-row { display: flex; align-items: center; gap: 0.45rem; margin: 0.5rem 0; font-size: 0.85em; }
+      .checkbox-row input, .radio-row input { accent-color: var(--oml-accent-text); width: auto; }
+      .view-mode-fieldset {
+        border: 1px solid var(--oml-border); border-radius: 0.5em; padding: 0.65rem 0.85rem 0.75rem;
+        background: var(--oml-panel); margin: 0 0 0.75rem; max-width: 26rem;
+      }
+      .view-mode-legend { font-size: 0.75em; text-transform: uppercase; font-weight: 600; color: var(--oml-muted); padding: 0 0.35rem; }
+      .view-mode-toggle { display: flex; gap: 0.65rem; flex-wrap: wrap; }
+      .view-mode-option { display: inline-flex; align-items: center; gap: 0.35rem; font-size: 0.85em; font-weight: 500; cursor: pointer; }
+      .view-mode-option input { width: auto; accent-color: var(--oml-accent-text); }
+
+      /* ── Switches ── */
+      .oml-switch { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85em; font-weight: 500; cursor: pointer; }
+      .oml-switch input { position: absolute; opacity: 0; width: 0; height: 0; }
+      .oml-switch .track {
+        width: 2.5rem; height: 1.35rem; border-radius: 999px; background: var(--oml-switch-track);
+        border: 1px solid var(--oml-border); position: relative; transition: background 0.2s; flex-shrink: 0;
+      }
+      .oml-switch .track::after {
+        content: ""; position: absolute; top: 2px; left: 2px;
+        width: calc(1.35rem - 6px); height: calc(1.35rem - 6px); border-radius: 999px;
+        background: var(--oml-switch-thumb); box-shadow: 0 1px 2px var(--oml-shadow-lg); transition: transform 0.2s;
+      }
+      .oml-switch input:checked + .track { background: var(--oml-switch-on); border-color: var(--oml-accent-border); }
+      .oml-switch input:checked + .track::after { transform: translateX(1.1rem); }
+      .oml-switch input:focus-visible + .track { outline: 2px solid var(--oml-accent-text); outline-offset: 2px; }
+
+      /* ── Dropdowns ── */
+      .dropdown-select-wrap,
+      .dropdown-trigger-wrap {
+        --oml-dd-chevron-size: 1rem;
+        --oml-dd-chevron-gap: 0.65rem;
+        --oml-dd-chevron-pad: calc(var(--oml-dd-chevron-size) + var(--oml-dd-chevron-gap) + 0.35rem);
+      }
+      .dropdown-block { max-width: 18rem; }
+      .dropdown-select-wrap {
+        position: relative;
+        display: inline-block;
+        vertical-align: top;
+        width: 9em;
+        max-width: 100%;
+        margin: 0 0 0.5em;
+      }
+      .dropdown-block.dropdown .dropdown-select-wrap {
+        vertical-align: middle;
+        margin-bottom: 0;
+      }
+      .dropdown-select-wrap.is-block {
+        display: block;
+        width: 100%;
+      }
+      .generator-block .dropdown-select-wrap.is-block + .field-label,
+      .generator-block .field-label + .dropdown-select-wrap.is-block {
+        margin-top: 0;
+      }
+      .dropdown-trigger-wrap {
+        position: relative;
+        display: inline-flex;
+        vertical-align: top;
+      }
+      .dropdown-chevron {
+        position: absolute;
+        right: var(--oml-dd-chevron-gap);
+        top: 0;
+        bottom: 0;
+        margin-block: auto;
+        width: var(--oml-dd-chevron-size);
+        height: var(--oml-dd-chevron-size);
+        pointer-events: none;
+        color: var(--oml-muted);
+        display: grid;
+        place-items: center;
+        line-height: 0;
+      }
+      .dropdown-chevron .oml-icon {
+        width: var(--oml-dd-chevron-size);
+        height: var(--oml-dd-chevron-size);
+        display: block;
+      }
+      .dropdown-select-wrap select {
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        padding: 0.5em var(--oml-dd-chevron-pad) 0.5em 1em;
+        line-height: 1.7em;
+        appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        background-color: var(--site-bg);
+        cursor: pointer;
+      }
+      .dropdown-menu-wrap { position: relative; display: inline-block; }
+      .dropdown-trigger-wrap .dropdown-trigger.ghost {
+        font-family: "Poppins", sans-serif;
+        font-size: 0.85em;
+        font-weight: 600;
+        padding-right: var(--oml-dd-chevron-pad);
+      }
+      .dropdown-menu {
+        position: absolute; top: calc(100% + 4px); left: 0; min-width: 11rem;
+        background: var(--site-bg); border: 1px solid var(--oml-edge); border-radius: 0.5em;
+        box-shadow: 0 8px 24px var(--oml-shadow-md); padding: 0.35rem 0; z-index: 50; display: none;
+      }
+      .dropdown-menu.open { display: block; }
+      .dropdown-menu button {
+        display: block; width: 100%; text-align: left; border: 0; background: none;
+        padding: 0.5rem 0.85rem; font-family: inherit; font-size: 0.85em; font-weight: 500;
+        cursor: pointer; color: var(--oml-text);
+      }
+      .dropdown-menu button:hover { background: var(--oml-panel); }
+      .dropdown-menu button.danger-item { color: var(--oml-danger); }
+
+      /* ── Inline search ── */
+      .inline-search-bar {
+        display: flex; align-items: center; gap: 0.5rem;
+        padding: 0.35rem 0.65rem 0.35rem 0.85rem;
+        border: 1px solid var(--oml-border); border-radius: 0.5em; background: var(--oml-surface);
+        max-width: 22rem; box-shadow: inset 0 0 2px -2px var(--oml-inset-shadow);
+      }
+      .inline-search-bar:focus-within { border-color: var(--oml-focus-border); }
+      .inline-search-bar .oml-icon { color: var(--oml-muted); flex-shrink: 0; }
+      .inline-search-bar input {
+        border: 0; flex: 1; min-width: 0; padding: 0.35em 0; margin: 0; box-shadow: none;
+        font-family: "Poppins", sans-serif; font-size: 0.85em; font-weight: 500; background: transparent; width: 100%; max-width: none;
+      }
+      .inline-search-bar input:focus { outline: none; border: 0; }
+      .inline-search-bar .clear-btn {
+        border: 0; background: none; color: var(--oml-muted); cursor: pointer; padding: 0.2rem; font-size: 1rem; line-height: 1;
+      }
+      .toolbar-inline { display: flex; flex-wrap: wrap; gap: 0.65rem; align-items: center; padding: 0.65rem; background: var(--oml-panel); border-radius: 0.5em; border: 1px solid var(--oml-border); max-width: 28rem; }
+
+      /* ── Alerts ── */
+      .oml-alert {
+        padding: 0.75rem 1rem; border-radius: 0.5em; border: 1px solid var(--oml-border);
+        font-size: 0.85em; margin-bottom: 0.65rem; max-width: 28rem; display: flex; gap: 0.65rem; align-items: flex-start;
+      }
+      .oml-alert strong { display: block; font-weight: 600; margin-bottom: 0.15rem; }
+      .oml-alert.info { background: var(--oml-info-bg); border-color: var(--oml-info-border); }
+      .oml-alert.success { background: var(--oml-success-bg); border-color: var(--oml-success-border); }
+      .oml-alert.warning { background: var(--oml-warn-bg); border-color: var(--oml-warn-border); }
+      .oml-alert.error { background: var(--oml-error-bg); border-color: var(--oml-error-border); }
+      .oml-alert .oml-icon { flex-shrink: 0; margin-top: 0.1rem; }
+
+      /* ── Dialog ── */
+      .dialog-demo-area { position: relative; min-height: 8rem; }
+      .oml-dialog-backdrop {
+        position: fixed; inset: 0; background: var(--oml-overlay); z-index: 300;
+        display: none; align-items: center; justify-content: center; padding: 1rem;
+      }
+      .oml-dialog-backdrop.open { display: flex; }
+      .oml-dialog {
+        background: var(--oml-surface); border-radius: 0.5em; border: 1px solid var(--oml-edge);
+        box-shadow: 0 20px 50px var(--oml-shadow-lg); max-width: 22rem; width: 100%; padding: 1.25rem;
+      }
+      .oml-dialog h3 { margin: 0 0 0.5rem; font-size: 1.05rem; font-weight: 600; }
+      .oml-dialog p { margin: 0 0 1rem; font-size: 0.85em; color: var(--oml-muted); line-height: 1.5; }
+      .oml-dialog .actions { justify-content: flex-end; }
+
+      /* ── Tabs ── */
+      .oml-tabs { display: flex; border: 1px solid var(--oml-border); border-radius: 0.5em; overflow: hidden; max-width: 24rem; margin-bottom: 0.75rem; }
+      .oml-tabs button {
+        flex: 1; border: 0; background: var(--oml-surface); padding: 0.55em 1em;
+        font-family: "Poppins", sans-serif; font-size: 0.85em; font-weight: 600;
+        color: var(--oml-muted); cursor: pointer;
+      }
+      .oml-tabs button.active { background: var(--oml-tab-active-bg); color: var(--oml-accent-text); }
+      .oml-tabs-underline { display: flex; gap: 0.25rem; border-bottom: 1px solid var(--oml-border); max-width: 24rem; margin-bottom: 0.75rem; }
+      .oml-tabs-underline button {
+        border: 0; background: none; padding: 0.55em 0.85em; font-family: inherit;
+        font-size: 0.85em; font-weight: 600; color: var(--oml-muted); cursor: pointer;
+        border-bottom: 2px solid transparent; margin-bottom: -1px;
+      }
+      .oml-tabs-underline button.active { color: var(--oml-accent-text); border-bottom-color: var(--oml-accent-text); }
+      .tab-panel { display: none; font-size: 0.85em; color: var(--oml-muted); max-width: 26rem; padding: 0.5rem 0; }
+      .tab-panel.active { display: block; }
+
+      /* ── Accordion ── */
+      .oml-accordion { max-width: 26rem; border: 1px solid var(--oml-border); border-radius: 0.5em; overflow: hidden; }
+      .oml-accordion details { border-bottom: 1px solid var(--oml-border); }
+      .oml-accordion details:last-child { border-bottom: 0; }
+      .oml-accordion summary {
+        padding: 0.75rem 1rem; font-size: 0.85em; font-weight: 600; cursor: pointer;
+        list-style: none; background: var(--oml-surface); display: flex; justify-content: space-between; align-items: center;
+      }
+      .oml-accordion summary::-webkit-details-marker { display: none; }
+      .oml-accordion summary::after { content: "+"; color: var(--oml-muted); font-weight: 400; }
+      .oml-accordion details[open] summary { background: var(--oml-panel); }
+      .oml-accordion details[open] summary::after { content: "−"; }
+      .oml-accordion .acc-body { padding: 0 1rem 0.85rem; font-size: 0.85em; color: var(--oml-muted); line-height: 1.55; }
+
+      /* ── Pin / Star toggles ── */
+      .toggle-state-btn {
+        font-family: "Poppins", sans-serif; font-size: 0.85em; font-weight: 500;
+        display: inline-flex; align-items: center; gap: 0.4rem;
+        padding: 0.45rem 0.75rem; border-radius: 0.5em; border: 1px solid var(--oml-border);
+        background: var(--oml-surface); cursor: pointer; color: var(--oml-text); transition: background 0.2s, border-color 0.2s;
+      }
+      .toggle-state-btn:hover { background: var(--oml-panel); }
+      .toggle-state-btn.is-on { border-color: var(--oml-accent-border); background: var(--oml-toggle-on-bg); color: var(--oml-accent-text); }
+      .toggle-state-btn .oml-icon { width: 1rem; height: 1rem; }
+      .toggle-state-btn.starred.is-on .oml-icon { color: #d4a012; fill: #f0c929; stroke: #d4a012; }
+
+      /* ── Upload ── */
+      .oml-upload-stack {
+        width: 100%;
+        max-width: 26rem;
+        min-width: 0;
+      }
+      .oml-upload-zone {
+        display: block;
+        box-sizing: border-box;
+        width: 100%;
+        border: 2px dashed var(--oml-edge);
+        border-radius: 0.5em;
+        padding: 1.5rem 1rem;
+        text-align: center;
+        background: var(--oml-surface);
+        cursor: pointer;
+        transition: border-color 0.2s, background 0.2s;
+      }
+      .oml-upload-zone:hover, .oml-upload-zone.dragover { border-color: var(--oml-accent-border); background: var(--oml-success-bg); }
+      .oml-upload-zone input { position: absolute; opacity: 0; width: 0; height: 0; }
+      .oml-upload-zone p {
+        margin: 0.5rem 0 0;
+        font-size: 0.85em;
+        color: var(--oml-muted);
+        line-height: 1.45;
+        overflow-wrap: anywhere;
+      }
+      .oml-file-card {
+        box-sizing: border-box;
+        width: 100%;
+        min-width: 0;
+        display: flex;
+        gap: 0.65rem;
+        align-items: center;
+        padding: 0.75rem 0.85rem;
+        border: 1px solid var(--oml-border);
+        border-radius: 0.5em;
+        background: var(--oml-panel);
+        margin-top: 0.75rem;
+        overflow: hidden;
+      }
+      .oml-file-card .file-icon {
+        width: 2.25rem;
+        height: 2.25rem;
+        border-radius: 0.35em;
+        background: var(--oml-hover-bg);
+        display: grid;
+        place-items: center;
+        color: var(--oml-accent-text);
+        flex-shrink: 0;
+      }
+      .oml-file-card .file-meta {
+        flex: 1;
+        min-width: 0;
+        overflow: hidden;
+      }
+      .oml-file-card .file-meta strong {
+        display: block;
+        font-size: 0.85em;
+        font-weight: 600;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .oml-file-card .file-meta span {
+        display: block;
+        font-size: 0.75em;
+        color: var(--oml-muted);
+        line-height: 1.4;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+      }
+      .oml-file-card .file-progress {
+        height: 4px;
+        background: var(--oml-border);
+        border-radius: 999px;
+        margin-top: 0.5rem;
+        overflow: hidden;
+        max-width: 100%;
+      }
+      .oml-file-card .file-progress i { display: block; height: 100%; width: 68%; background: var(--oml-accent-text); border-radius: 999px; }
+      .oml-file-card > .icon-btn {
+        flex-shrink: 0;
+        align-self: flex-start;
+        margin-top: 0.05rem;
+      }
+
+      /* ── Generators ── */
+      .generators-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+        gap: 1rem;
+        max-width: 36rem;
+      }
+      .generator-block { max-width: none; }
+      .generator-block + .generator-block { margin-top: 0; }
+      .token-output-row {
+        display: flex;
+        gap: 0.5rem;
+        margin-top: 0.65rem;
+        align-items: stretch;
+      }
+      .token-output-row input {
+        flex: 1;
+        font-family: ui-monospace, Menlo, Monaco, Consolas, monospace;
+        font-size: 0.78em;
+        padding: 0.55em 0.75em;
+        border: 1px solid var(--oml-border);
+        border-radius: 0.5em;
+        background: var(--oml-panel);
+        color: var(--oml-text);
+        min-width: 0;
+        width: 100%;
+        max-width: none;
+        margin: 0;
+        box-shadow: inset 0 0 2px -2px var(--oml-inset-shadow);
+      }
+      .token-meta { font-size: 0.75em; color: var(--oml-muted); margin-top: 0.5rem; line-height: 1.45; }
+      .icon-pin-slot { display: inline-flex; align-items: center; justify-content: center; width: 1rem; height: 1rem; }
+      .toggle-state-btn.is-on .icon-pin-slot .icon-unpinned { display: none; }
+      .toggle-state-btn:not(.is-on) .icon-pin-slot .icon-pinned { display: none; }
+
+      /* ── Icons ── */
+      .icon-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(5.5rem, 1fr)); gap: 0.65rem; max-width: 32rem; }
+      .icon-cell {
+        display: flex; flex-direction: column; align-items: center; gap: 0.35rem;
+        padding: 0.65rem; border: 1px solid var(--oml-border); border-radius: 0.5em;
+        background: var(--site-bg); font-size: 0.65em; color: var(--oml-muted);
+      }
+      .icon-cell .oml-icon { width: 1.35rem; height: 1.35rem; color: var(--oml-accent-text); }
+      .oml-icon { display: inline-block; vertical-align: middle; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+
+      /* ── Floating sidebar demo ── */
+      .sidebar-demo-frame {
+        position: relative; border: 1px solid var(--oml-edge); border-radius: 0.5em;
+        height: 280px; overflow: hidden; background: var(--site-bg); max-width: 36rem;
+      }
+      .oml-floating-sidebar {
+        position: absolute; top: 0; left: 0; bottom: 0; width: var(--sidebar-w);
+        background: var(--oml-panel); border-right: 1px solid var(--oml-edge);
+        padding: 0.85rem 0; box-shadow: 4px 0 16px var(--oml-shadow-sm);
+        transition: transform 0.25s ease, box-shadow 0.25s ease; z-index: 2;
+      }
+      .oml-floating-sidebar.collapsed { transform: translateX(calc(-1 * var(--sidebar-w) + 2.5rem)); box-shadow: 4px 0 20px var(--oml-shadow-md); }
+      .oml-floating-sidebar .sidebar-head {
+        display: flex; align-items: center; justify-content: space-between;
+        padding: 0 0.75rem 0.65rem; border-bottom: 1px solid var(--oml-border); margin-bottom: 0.5rem;
+      }
+      .oml-floating-sidebar .sidebar-head strong { font-size: 0.8em; text-transform: uppercase; letter-spacing: 0.05em; color: var(--oml-muted); }
+      .oml-floating-sidebar nav a {
+        display: block; padding: 0.45rem 0.75rem; font-size: 0.85em; font-weight: 500;
+        color: var(--oml-text); border-left: 3px solid transparent;
+      }
+      .oml-floating-sidebar nav a:hover { background: var(--oml-hover-soft); opacity: 1; }
+      .oml-floating-sidebar nav a.active { border-left-color: var(--oml-accent-text); background: var(--oml-tab-active-bg); color: var(--oml-accent-text); }
+      .sidebar-demo-main {
+        margin-left: var(--sidebar-w); padding: 1rem 1.25rem; font-size: 0.85em; color: var(--oml-muted);
+        transition: margin-left 0.25s ease;
+      }
+      .sidebar-demo-frame.sidebar-collapsed .sidebar-demo-main { margin-left: 2.5rem; }
+
+      .kit-footer-bar {
+        position: fixed;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        z-index: 100;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: var(--site-footer-offset);
+        border-top: 1px solid var(--site-border);
+        background: var(--site-topbar-bg);
+        backdrop-filter: blur(10px);
+        padding: 0.65rem 1.25rem;
+      }
+      .kit-footer-note {
+        font-size: 0.82rem;
+        color: var(--site-muted);
+        margin: 0;
+        text-align: center;
+      }
+
+      @media (max-width: 900px) {
+        :root {
+          --site-topbar-offset: 6.35rem;
+        }
+        .site-topbar {
+          padding: 0.55rem 0.9rem 0.65rem;
+        }
+        .site-topbar-inner {
+          grid-template-columns: minmax(0, 1fr) auto;
+          grid-template-areas:
+            "brand theme"
+            "nav nav";
+          gap: 0.55rem 0.75rem;
+        }
+        .site-topbar-start,
+        .site-topbar-end {
+          justify-self: stretch;
+        }
+        .site-topbar-end {
+          justify-self: end;
+        }
+        .site-topbar-center {
+          justify-self: stretch;
+          margin-top: 0.1rem;
+          padding-top: 0.15rem;
+        }
+        .site-primary-nav {
+          width: 100%;
+          gap: 0.35rem;
+          margin: 0;
+          padding: 0.1rem 0 0.05rem;
+        }
+        .site-primary-nav li {
+          flex: 1;
+          min-width: 0;
+        }
+        .site-primary-nav button,
+        .site-primary-nav a[role="tab"] {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          min-height: 2.4rem;
+          padding: 0.55rem 0.45rem;
+          font-size: 0.79rem;
+          line-height: 1.25;
+          text-align: center;
+          border-radius: 0.42rem;
+        }
+      }
+      @media (max-width: 520px) {
+        :root {
+          --site-topbar-offset: 6.25rem;
+        }
+        .site-topbar {
+          padding: 0.5rem 0.75rem 0.6rem;
+        }
+        .site-topbar-inner {
+          gap: 0.5rem 0.55rem;
+        }
+        .site-topbar-center {
+          margin-top: 0.15rem;
+          padding-top: 0.2rem;
+        }
+        .site-primary-nav {
+          gap: 0.28rem;
+          padding: 0.15rem 0 0.05rem;
+        }
+        .site-primary-nav button,
+        .site-primary-nav a[role="tab"] {
+          min-height: 2.3rem;
+          padding: 0.5rem 0.3rem;
+          font-size: 0.74rem;
+          line-height: 1.2;
+          border-radius: 0.4rem;
+        }
+        .nav-label-full { display: none; }
+        .nav-label-compact { display: inline; }
+        .site-theme-btn {
+          width: 1.75rem;
+          height: 1.75rem;
+        }
+        .site-theme-btn .oml-icon {
+          width: 0.95rem;
+          height: 0.95rem;
+        }
+      }
+      @media (max-width: 1100px) {
+        .site-body {
+          padding: 0 0.85rem 2.5rem;
+          max-width: none;
+        }
+        .site-main {
+          padding: 1.15rem 0 1.5rem;
+          min-width: 0;
+        }
+        .site-lead {
+          font-size: 0.95rem;
+        }
+        .demo-panel,
+        .demo-row,
+        .colour-grid,
+        .spacing-table-wrap,
+        .separator-showcase,
+        .oml-upload-stack,
+        .sidebar-demo-frame,
+        .icon-grid {
+          max-width: 100%;
+        }
+        .textbox label,
+        .dropdown label {
+          display: block;
+          width: auto;
+          line-height: 1.4;
+          margin-bottom: 0.25rem;
+        }
+        .dropdown-block.dropdown {
+          max-width: 100%;
+        }
+        .dropdown-select-wrap {
+          width: 100%;
+        }
+        input[type="text"],
+        input[type="number"],
+        input[type="email"],
+        input[type="password"],
+        input[type="url"],
+        input[type="date"],
+        input[type="time"],
+        select,
+        textarea.oml-field {
+          max-width: 100%;
+        }
+        .site-page-header h1,
+        .site-collection-heading { font-size: 1.75rem; }
+        .site-page-header { margin-bottom: 1.75rem; }
+        .kit-footer-bar {
+          padding: 0.55rem 0.85rem;
+        }
+        .kit-footer-note {
+          font-size: 0.78rem;
+        }
+      }
+      @media (max-width: 520px) {
+        .colour-grid {
+          grid-template-columns: repeat(2, minmax(0, 1fr));
+          gap: 1rem 0.75rem;
+        }
+        .site-page-header h1,
+        .site-collection-heading { font-size: 1.45rem; }
+        .kit-heading { font-size: 1rem; }
+        .site-main {
+          padding: 1rem 0 1.25rem;
+        }
+        .demo-row.actions {
+          gap: 0.5rem;
+        }
+        .demo-row.actions button {
+          flex: 1 1 calc(50% - 0.5rem);
+          min-width: 0;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <!-- SVG icon sprite -->
+    <svg xmlns="http://www.w3.org/2000/svg" style="display:none" aria-hidden="true">
+      <symbol id="icon-search" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3-3"/></symbol>
+      <symbol id="icon-pin" viewBox="0 0 24 24">
+        <path d="M12 17v5"/>
+        <path d="M9 3h6l1 7H8l1-7z"/>
+      </symbol>
+      <symbol id="icon-pin-off" viewBox="0 0 24 24">
+        <path d="M12 17v5"/>
+        <path d="M2 2l20 20"/>
+        <path d="M9 3h6l1 7H8l1-7z"/>
+      </symbol>
+      <symbol id="icon-star" viewBox="0 0 24 24"><polygon points="12 2 15 9 22 9 17 14 19 22 12 18 5 22 7 14 2 9 9 9"/></symbol>
+      <symbol id="icon-upload" viewBox="0 0 24 24"><path d="M12 3v12M8 7l4-4 4 4M4 17v2a2 2 0 002 2h12a2 2 0 002-2v-2"/></symbol>
+      <symbol id="icon-copy" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="1"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></symbol>
+      <symbol id="icon-check" viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></symbol>
+      <symbol id="icon-info" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 10v6M12 7h.01"/></symbol>
+      <symbol id="icon-warn" viewBox="0 0 24 24"><path d="M12 3l10 18H2zM12 10v4M12 17h.01"/></symbol>
+      <symbol id="icon-x" viewBox="0 0 24 24"><path d="M18 6L6 18M6 6l12 12"/></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+      <symbol id="icon-chevron-down" viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></symbol>
+      <symbol id="icon-file" viewBox="0 0 24 24"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><path d="M14 2v6h6"/></symbol>
+      <symbol id="icon-key" viewBox="0 0 24 24">
+        <circle cx="7.5" cy="15.5" r="5.5"/>
+        <path d="m21 2-9.6 9.6"/>
+        <path d="m15.5 7.5 3 3L21 7l-3-3"/>
+      </symbol>
+      <symbol id="icon-shield-key" viewBox="0 0 24 24">
+        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"/>
+      </symbol>
+      <symbol id="icon-sun" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.41 1.41m11.31 11.31 1.41 1.41M2 12h2m16 0h2M6.34 6.34 4.93 4.93m12.73 12.73 1.41 1.41M6.34 17.66l-1.41 1.41M17.66 6.34l1.41-1.41"/>
+      </symbol>
+      <symbol id="icon-moon" viewBox="0 0 24 24"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></symbol>
+      <symbol id="icon-monitor" viewBox="0 0 24 24">
+        <rect x="2" y="4" width="20" height="13" rx="2"/><path d="M8 21h8M12 17v4"/>
+      </symbol>
+      <symbol id="icon-external" viewBox="0 0 24 24">
+        <path d="M15 3h6v6"/><path d="M10 14 21 3"/><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+      </symbol>
+    </svg>
+
+    <header class="site-topbar" id="site-topbar">
+      <div class="site-topbar-inner">
+        <div class="site-topbar-start">
+          <a class="site-brand" href="#home" aria-label="omusiclab home">
+            <span class="site-brand-logos">
+              <svg class="site-brand-logo site-brand-logo--icon" xmlns="http://www.w3.org/2000/svg" viewBox="80 220 445 400" aria-hidden="true">
+                <polygon class="oml-logo-mark" points="403.835,446.915 337.365,436.46 246.5,455.84 187.085,467.4 121.55,455.84 159.8,542.03 246.5,582.065 339.15,562.09 393.21,497.405" />
+                <path class="oml-logo-line" d="M111.435,440.71c0-82.96,67.83-150.79,150.79-150.79c22.61,0,45.22,4.675,65.96,15.045l71.655-71.655c-9.435-11.305-8.5-28.305,1.87-39.61c11.305-11.305,30.175-11.305,41.48,0l65.96,65.96c11.305,11.305,11.305,30.175,0,41.48c-15.98,15.98-34.85,5.695-39.61,1.87l-71.655,71.655c10.37,20.74,15.045,43.35,15.045,65.96c0,34.85-25.415,151.725-164.9,148.92c-98.005,0-136.68-102.765-136.68-148.92L111.435,440.71z M494.955,288.05c3.74-3.74,3.74-10.37,0-15.045l-65.96-65.96c-4.675-3.74-11.305-3.74-15.045,0.935c-3.74,3.74-3.74,9.435,0,14.11l4.675,4.675l56.525,56.525l4.675,4.675c4.675,3.74,11.305,4.675,15.045,0c0.623,0,0.623,0,0,0L494.955,288.05z M413.015,246.57l-76.33,76.33c-2.805,2.805-7.565,3.74-11.305,1.87c-64.09-34.85-144.16-11.305-179.095,52.785c-10.37,19.805-15.98,41.48-15.98,63.155c0,0.935,57.46,30.175,120.615,4.675c28.305-11.305,61.285-26.35,120.615-12.24l22.61,5.695c0-21.675-5.695-42.415-15.98-61.285c-1.87-3.74-0.935-8.5,1.87-11.305l15.045-15.045l-17-17c-3.74-3.74-3.74-9.435,0-13.175s9.435-3.74,13.175,0l17,17l15.045-15.045l-17-17c-3.74-3.74-3.74-9.435,0-13.175s9.435-3.74,13.175,0l17,17l19.805-19.805l-43.35-43.35L413.015,246.57z M262.225,572.715c65.96,0,122.485-49.045,130.985-115.005l-24.48-5.695c-67.83-12.24-84.83,0-110.245,11.305c-39.61,17.935-84.83,15.045-125.375,0.935c11.305,63.155,65.025,108.375,129.115,108.375L262.225,572.715z" />
+              </svg>
+              <span class="site-brand-wordmark" aria-hidden="true"></span>
+            </span>
+          </a>
+        </div>
+        <nav class="site-topbar-center" aria-label="Primary">
+          <ul class="site-primary-nav" role="tablist">
+            <li>
+              <a href="#home" class="is-active" role="tab" data-site-tab="home" aria-selected="true" aria-current="page">
+                Home
+              </a>
+            </li>
+            <li><a href="#legacy" role="tab" data-site-tab="legacy" aria-selected="false" tabindex="-1">Legacy</a></li>
+            <li><a href="#contributors" role="tab" data-site-tab="contributors" aria-selected="false" tabindex="-1">Contributors</a></li>
+          </ul>
+        </nav>
+        <div class="site-topbar-end">
+          <div class="site-theme-toggle" role="group" aria-label="Color theme">
+            <button type="button" class="site-theme-btn" data-theme-mode="light" aria-pressed="false" aria-label="Light theme" title="Light">
+              <svg class="oml-icon" width="18" height="18" aria-hidden="true"><use href="#icon-sun"/></svg>
+            </button>
+            <button type="button" class="site-theme-btn" data-theme-mode="dark" aria-pressed="false" aria-label="Dark theme" title="Dark">
+              <svg class="oml-icon" width="18" height="18" aria-hidden="true"><use href="#icon-moon"/></svg>
+            </button>
+            <button type="button" class="site-theme-btn is-active" data-theme-mode="device" aria-pressed="true" aria-label="Match system theme" title="System">
+              <svg class="oml-icon" width="18" height="18" aria-hidden="true"><use href="#icon-monitor"/></svg>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <div class="site-body site-body--wide" id="site-body">
+      <main class="site-main" id="main-content">
+        <article class="site-view site-view--home" id="view-home" aria-label="Home">
+          <section class="oml-home-hero oml-home-hero--wide site-home-full" data-hero-parallax aria-label="omusiclab hero">
+            <div class="oml-home-hero-wide-inner">
+              <div class="oml-home-hero-copy">
+                <p class="site-eyebrow" style="margin-bottom:0.75rem">Non-profit · beginner friendly</p>
+                <h1 class="oml-home-hero-logo">
+                  <svg class="oml-home-hero-logo-svg" xmlns="http://www.w3.org/2000/svg" viewBox="0 308.5 612 175" role="img" aria-label="omusiclab">
+<path class="oml-logo-type" d="M189.051,412.859c0,4.043-0.667,7.669-1.959,10.878c-1.292,3.209-3.084,5.96-5.376,8.169  c-2.292,2.209-5.001,3.959-8.044,5.126c-3.042,1.167-6.418,1.792-9.961,1.792c-3.543,0-6.877-0.542-9.919-1.625  c-3.042-1.084-5.668-2.709-7.919-4.835c-2.209-2.126-3.959-4.751-5.251-7.835c-1.25-3.126-1.917-6.668-1.917-10.628  c0-4.168,0.667-7.877,1.959-11.128c1.292-3.251,3.084-6.002,5.376-8.211c2.292-2.209,4.96-3.918,8.044-5.085  c3.084-1.167,6.418-1.75,9.961-1.75c3.543,0,6.877,0.542,9.919,1.625c3.042,1.084,5.668,2.667,7.919,4.793  c2.209,2.084,3.959,4.71,5.251,7.835C188.385,405.148,189.051,408.774,189.051,412.859L189.051,412.859z M174.964,413.401  c0-2.792-0.292-5.21-0.917-7.169c-0.625-2.001-1.417-3.584-2.459-4.835s-2.209-2.126-3.584-2.709s-2.751-0.875-4.209-0.875  s-2.792,0.25-4.126,0.75c-1.334,0.5-2.459,1.375-3.501,2.584c-1.042,1.209-1.834,2.792-2.459,4.793  c-0.625,2.001-0.917,4.501-0.917,7.502c0,2.667,0.292,4.96,0.917,6.919c0.625,1.959,1.459,3.543,2.501,4.793  s2.251,2.167,3.584,2.792c1.334,0.625,2.709,0.917,4.168,0.917s2.792-0.25,4.126-0.75c1.334-0.5,2.459-1.375,3.501-2.626  c1.042-1.25,1.834-2.834,2.459-4.793c0.625-1.959,0.917-4.376,0.917-7.252V413.401z"></path>
+<path class="oml-logo-letter-lavender" d="M209.891,437.699h-13.67v-48.972h10.67l1.625,6.252c2.209-2.251,4.585-4.043,7.169-5.335  c2.584-1.292,5.543-1.959,8.836-1.959c7.002,0,11.753,2.542,14.254,7.585c2.209-2.376,4.71-4.251,7.502-5.585  c2.792-1.334,5.835-2.001,9.044-2.001c5.21,0,9.169,1.417,11.962,4.209c2.751,2.792,4.168,6.877,4.168,12.212v33.592h-13.67v-32.05  c0-2.334-0.583-4.168-1.709-5.501c-1.125-1.334-2.792-2.001-4.96-2.001c-1.834,0-3.709,0.458-5.585,1.334  c-1.876,0.875-3.501,2.167-4.876,3.793v34.384h-13.67v-32.05c0-2.334-0.583-4.168-1.709-5.501c-1.125-1.334-2.792-2.001-5.001-2.001  c-1.834,0-3.709,0.5-5.585,1.5c-1.876,1-3.501,2.334-4.876,4.043v33.968L209.891,437.699z"></path>
+<path class="oml-logo-letter-cyan" d="M312.96,388.727h13.67v48.972h-10.169l-1.417-5.543h-0.417c-0.75,0.75-1.625,1.542-2.626,2.292  c-1,0.792-2.167,1.5-3.501,2.167c-1.334,0.667-2.834,1.167-4.501,1.584c-1.667,0.417-3.543,0.625-5.585,0.625  c-5.293,0-9.419-1.459-12.462-4.418s-4.585-7.294-4.585-13.045v-32.634h13.67v31.509c0,2.959,0.709,5.085,2.126,6.377  s3.209,1.959,5.376,1.959c2.459,0,4.585-0.5,6.335-1.542c1.75-1.042,3.126-2.209,4.168-3.584v-34.718H312.96z"></path>
+<path class="oml-logo-letter-rose" d="M365.975,400.439c-4.043-1.917-7.961-2.876-11.712-2.876c-2.209,0-3.876,0.375-5.085,1.125  s-1.792,1.792-1.792,3.084s0.542,2.376,1.584,3.168c1.042,0.834,3.209,1.709,6.418,2.667l3.084,0.917  c4.251,1.25,7.46,3.001,9.669,5.335c2.209,2.334,3.293,5.335,3.293,9.044c0,4.876-1.875,8.711-5.585,11.586  s-8.794,4.335-15.129,4.335c-6.335,0-12.087-1.167-16.755-3.501l3.084-10.044c2.001,1.042,4.084,1.876,6.252,2.501  c2.209,0.667,4.418,0.959,6.668,0.959c2.751,0,4.751-0.417,6.002-1.292c1.25-0.875,1.917-1.959,1.917-3.334  c0-1.375-0.625-2.542-1.834-3.334c-1.25-0.792-3.543-1.667-7.002-2.626l-3.168-0.917c-4.126-1.375-7.127-3.168-9.044-5.46  c-1.917-2.251-2.876-5.293-2.876-9.044c0-4.46,1.667-8.086,5.043-10.878c3.334-2.792,8.044-4.209,14.046-4.209  c6.002,0,11.211,1.042,15.796,3.168l-2.876,9.544V400.439z"></path>
+<path class="oml-logo-letter-mint" d="M386.522,378.266c-2.334,0-4.126-0.667-5.46-2.001c-1.292-1.334-1.959-3.001-1.959-4.96  s0.667-3.626,1.959-5.001c1.292-1.334,3.126-2.001,5.46-2.001s4.043,0.667,5.376,2.001c1.334,1.334,2.001,3.001,2.001,5.001  s-0.667,3.626-1.959,4.96c-1.292,1.334-3.126,2.001-5.46,2.001H386.522z M379.603,437.699v-48.972h13.67v48.972H379.603z"></path>
+<path class="oml-logo-letter-cream" d="M429.95,428.78c2.209,0,4.126-0.292,5.793-0.875c1.667-0.583,3.043-1.125,4.168-1.709l2.584,9.461  c-1.375,0.75-3.334,1.459-5.96,2.167c-2.584,0.667-5.46,1.042-8.502,1.042c-3.709,0-7.169-0.542-10.378-1.625  c-3.209-1.084-6.002-2.709-8.377-4.876s-4.21-4.793-5.585-7.961c-1.375-3.168-2.042-6.794-2.042-11.003  c0-3.834,0.667-7.335,1.959-10.461c1.292-3.168,3.126-5.835,5.46-8.127c2.334-2.251,5.126-4.001,8.419-5.251  c3.293-1.25,6.877-1.834,10.795-1.834c2.126,0,4.376,0.208,6.71,0.625s4.835,1.292,7.46,2.667l-2.876,9.461  c-1.417-0.834-3.001-1.5-4.668-2.001c-1.667-0.5-3.376-0.75-5.085-0.75c-4.251,0-7.669,1.292-10.336,3.918  c-2.626,2.584-3.959,6.418-3.959,11.42c0,2.959,0.417,5.418,1.292,7.46c0.875,2.042,1.959,3.626,3.334,4.876  c1.375,1.25,2.917,2.126,4.626,2.667c1.709,0.542,3.459,0.834,5.251,0.834L429.95,428.78z"></path>
+<path class="oml-logo-type" d="M449.456,437.699v-73.312h13.462v73.312C462.918,437.699,449.456,437.699,449.456,437.699z"></path>
+<path class="oml-logo-type" d="M473.879,393.062c2.959-1.709,6.043-3.043,9.336-3.959c3.293-0.917,6.793-1.375,10.461-1.375  c2.959,0,5.627,0.333,8.044,1.042c2.417,0.667,4.501,1.75,6.252,3.251c1.75,1.459,3.084,3.334,4.001,5.668  c0.917,2.292,1.375,5.043,1.375,8.252v31.842h-10.586l-1.25-5.043h-0.417c-1.584,1.917-3.584,3.418-6.002,4.501  c-2.417,1.084-5.251,1.625-8.461,1.625c-2.667,0-5.043-0.375-7.085-1.167c-2.042-0.792-3.793-1.834-5.251-3.168  c-1.459-1.334-2.501-2.917-3.251-4.793s-1.084-3.834-1.084-5.96c0-2.792,0.583-5.21,1.792-7.252c1.209-2.001,2.834-3.668,4.96-5.001  c2.126-1.292,4.585-2.251,7.46-2.876c2.834-0.625,5.918-0.917,9.169-0.917h6.168v-2.959c0-2.251-0.709-3.918-2.084-5.001  c-1.417-1.042-3.376-1.584-5.918-1.584c-2.001,0-4.001,0.292-6.127,0.917c-2.126,0.625-4.418,1.625-6.919,2.959l-4.71-9.044  L473.879,393.062z M499.761,416.276l-4.418,0.083c-4.168,0.125-7.085,0.834-8.711,2.084c-1.625,1.25-2.459,2.792-2.459,4.585  c0,2.334,0.709,3.918,2.126,4.793c1.417,0.875,3.001,1.292,4.793,1.292s3.459-0.5,5.085-1.542c1.625-1.042,2.834-2.209,3.626-3.584  v-7.71H499.761z"></path>
+<path class="oml-logo-type" d="M571.031,413.401c0,3.918-0.583,7.419-1.75,10.586c-1.167,3.126-2.751,5.835-4.835,8.044  c-2.042,2.209-4.501,3.918-7.294,5.085c-2.792,1.167-5.835,1.75-9.128,1.75s-5.96-0.5-8.211-1.5s-4.251-2.376-5.96-4.168h-0.417  l-0.917,4.501h-9.878v-73.312h13.545v28.341c1.709-1.584,3.709-2.792,6.002-3.709c2.292-0.875,4.751-1.334,7.335-1.334  c6.71,0,11.962,2.251,15.754,6.794c3.793,4.501,5.71,10.836,5.71,18.88L571.031,413.401z M556.943,413.692  c0-5.085-1-8.919-2.959-11.545c-2-2.626-4.793-3.959-8.419-3.959c-1.917,0-3.709,0.458-5.335,1.375  c-1.625,0.917-2.959,1.959-3.918,3.126v22.506c0.875,1.042,2.042,1.876,3.459,2.584c1.417,0.667,2.876,1.042,4.46,1.042  s3.251-0.292,4.793-0.917c1.542-0.625,2.917-1.542,4.126-2.792c1.209-1.25,2.126-2.792,2.834-4.668  c0.667-1.876,1.042-4.126,1.042-6.71L556.943,413.692z"></path>
+<polygon class="oml-logo-mark" points="124.617,408.858 105.612,405.857 79.647,411.4 62.642,414.693 43.887,411.4 54.807,436.073   79.647,447.535 106.154,441.783 121.575,423.278 "></polygon>
+<g id="Line">
+	<path class="oml-logo-type" d="M40.969,407.066c0-23.715,19.422-43.137,43.137-43.137c6.46,0,12.962,1.334,18.88,4.335l20.506-20.506   c-2.709-3.251-2.417-8.086,0.542-11.336c3.251-3.251,8.627-3.251,11.878,0l18.88,18.88c3.251,3.251,3.251,8.627,0,11.878   c-4.585,4.585-9.961,1.625-11.336,0.542l-20.506,20.506c2.959,5.918,4.335,12.42,4.335,18.88c0,9.961-7.294,43.428-47.18,42.595   c-28.049,0-39.094-29.383-39.094-42.595L40.969,407.066z M150.708,363.387c1.084-1.084,1.084-2.959,0-4.335l-18.88-18.88   c-1.334-1.084-3.251-1.084-4.335,0.25c-1.084,1.084-1.084,2.709,0,4.043l1.334,1.334l16.171,16.171l1.334,1.334   c1.334,1.084,3.251,1.334,4.335,0c0.167,0,0.167,0,0,0L150.708,363.387z M127.243,351.509l-21.839,21.839   c-0.792,0.792-2.167,1.084-3.251,0.542c-18.338-9.961-41.261-3.251-51.222,15.087c-2.959,5.668-4.585,11.878-4.585,18.047   c0,0.25,16.463,8.627,34.509,1.334c8.086-3.251,17.546-7.544,34.509-3.501l6.46,1.625c0-6.21-1.625-12.128-4.585-17.546   c-0.542-1.084-0.25-2.417,0.542-3.251l4.335-4.335l-4.835-4.835c-1.084-1.084-1.084-2.709,0-3.793c1.084-1.084,2.709-1.084,3.793,0   l4.835,4.835l4.335-4.335l-4.835-4.835c-1.084-1.084-1.084-2.709,0-3.793c1.084-1.084,2.709-1.084,3.793,0l4.835,4.835l5.668-5.668   l-12.42-12.42L127.243,351.509z M84.106,444.826c18.88,0,35.051-14.004,37.469-32.884l-7.002-1.625   c-19.422-3.501-24.257,0-31.55,3.251c-11.336,5.126-24.257,4.335-35.843,0.25C50.43,431.864,65.768,444.826,84.106,444.826z"></path>
+</g>
+                  </svg>
+                </h1>
+                <p class="oml-home-hero-lead">
+                  Learning resources and tools for everyday practice — for musicians from their first chord to seasoned pros.
+                  Find more in the <a href="#collection">Collection</a>.
+                </p>
+                <div class="oml-home-actions">
+                  <a class="oml-btn-primary" href="https://tools.omusiclab.com/">Explore tools</a>
+                  <a class="oml-btn-outline" href="#collection">Browse Collection</a>
+                </div>
+              </div>
+              <div class="oml-home-hero-photos" aria-hidden="true">
+                <div
+                  class="oml-home-hero-photo oml-home-hero-photo--back"
+                  data-parallax-speed="0.16"
+                  data-rotate="-6"
+                >
+                  <img src="assets/images/hero-metronome.png" alt="" width="280" height="350" loading="lazy" decoding="async" />
+                </div>
+                <div
+                  class="oml-home-hero-photo oml-home-hero-photo--front"
+                  data-parallax-speed="0.34"
+                  data-rotate="5"
+                >
+                  <img src="assets/images/hero-tuner.png" alt="" width="280" height="350" loading="lazy" decoding="async" />
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <!-- Contained hero variant (hidden for now)
+          <div class="site-home-contained">
+            <div class="oml-home-hero">
+              <p class="site-eyebrow" style="margin-bottom:0.75rem">Non-profit · beginner friendly</p>
+              <h1 class="oml-home-hero-logo">
+                <svg class="oml-home-hero-logo-svg" viewBox="0 0 146.84 42.43" role="img" aria-label="omusiclab">
+                  <use href="#oml-brand-logo"></use>
+                </svg>
+              </h1>
+              <p class="oml-home-hero-lead">
+                Learning resources and tools for everyday practice — for musicians from their first chord to seasoned pros.
+                Find more in the <a href="#collection">Collection</a>.
+              </p>
+              <div class="oml-home-actions">
+                <a class="oml-btn-primary" href="https://tools.omusiclab.com/">Explore tools</a>
+                <a class="oml-btn-outline" href="#collection">Browse Collection</a>
+              </div>
+            </div>
+          </div>
+          -->
+
+          <div class="site-home-contained">
+            <header class="site-page-header site-page-intro" id="collection">
+              <h2 class="site-collection-heading">musician tools</h2>
+              <p class="site-lead">
+                Small, focused utilities for everyday practice — follow the beat, get the tuning right, and transpose chords when the song isn’t in your key.
+              </p>
+            </header>
+
+            <h2 class="oml-home-section-title">Practice tools</h2>
+            <div class="oml-home-feature-grid">
+              <a class="oml-home-feature" href="https://tools.omusiclab.com/metronome/">
+                <h3>Metronome</h3>
+                <p>
+                  Follow the beat — set a tempo, tap it in, and keep steady time while you practice.
+                </p>
+              </a>
+              <a class="oml-home-feature" href="https://tools.omusiclab.com/tuner/">
+                <h3>Tuner</h3>
+                <p>
+                  Get the tuning right — guitar, ukulele, and violin modes with a clear pitch readout from your mic.
+                </p>
+              </a>
+              <a class="oml-home-feature" href="https://tools.omusiclab.com/transposer/">
+                <h3>Chord Transposer</h3>
+                <p>
+                  Handy chord transposing — paste your chords and move them to the key you’re actually playing in.
+                </p>
+              </a>
+            </div>
+
+            <h2 class="oml-home-section-title">Printable resources</h2>
+            <div class="oml-home-feature-grid">
+              <a
+                class="oml-home-feature oml-home-feature--external"
+                href="https://www.omusiclab.com/wp-content/uploads/2023/04/oMusicLab-%E2%80%93-Blank-Guitar-Chord-Chart-Printable_Sheet_v1.0.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Guitar Chords Chart printable PDF (opens in a new tab)"
+              >
+                <h3 class="oml-home-feature-title">
+                  <span>Guitar Chords Chart</span>
+                  <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+                </h3>
+                <p>
+                  Blank fretboard diagrams on a printable sheet — a clean slate for sketching fingerings and studying chord shapes.
+                </p>
+              </a>
+              <a
+                class="oml-home-feature oml-home-feature--external"
+                href="https://www.omusiclab.com/wp-content/uploads/2023/04/oMusicLab-%E2%80%93-Blank-Ukulele-Chord-Chart-Printable_Sheet_v1.0.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Ukulele Chords Chart printable PDF (opens in a new tab)"
+              >
+                <h3 class="oml-home-feature-title">
+                  <span>Ukulele Chords Chart</span>
+                  <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+                </h3>
+                <p>
+                  Empty ukulele chord grids ready to print — fill in diagrams by hand for practice, lessons, or your own reference.
+                </p>
+              </a>
+            </div>
+
+            <!-- LitePresenter experimental projects (hidden for now)
+            <h2 class="oml-home-section-title">LitePresenter experimental projects</h2>
+            <p class="oml-home-section-note">
+              LitePresenter is still in the works — these experiments preview the offline presenter flow we are building toward.
+            </p>
+            <div class="oml-home-feature-grid">
+              <a class="oml-home-feature" href="../micropages/hymnalcast.html">
+                <div class="oml-badge-row">
+                  <span class="oml-badge oml-badge--cream">In the works</span>
+                </div>
+                <h3>HymnalCast</h3>
+                <p>
+                  Lightweight offline lyrics and slides for worship and events — library, presenter, and remote control in one flow.
+                </p>
+              </a>
+              <a class="oml-home-feature" href="../micropages/biblecast.html">
+                <div class="oml-badge-row">
+                  <span class="oml-badge oml-badge--cream">In the works</span>
+                </div>
+                <h3>BibleCast</h3>
+                <p>
+                  Present Scripture from the YouVersion API — search books and verses, build slides, and present offline.
+                </p>
+              </a>
+            </div>
+            -->
+          </div>
+        </article>
+
+        <article class="site-view site-view--legacy" id="view-legacy" aria-label="Legacy" hidden>
+          <header class="site-page-header site-page-intro">
+            <p class="site-eyebrow">Earlier releases</p>
+            <h1>Legacy</h1>
+            <p class="site-lead">
+              Older projects we keep around for reference — still online, but not part of the current omusiclab lineup.
+            </p>
+          </header>
+
+          <div class="oml-home-feature-grid">
+            <a class="oml-home-feature" href="#home">
+              <h3>Chord Diagram Viewer</h3>
+              <p>
+                See how fret numbers map to fingers and open strings — a visual-first path through guitar and ukulele diagrams without drowning in prose.
+              </p>
+            </a>
+            <a
+              class="oml-home-feature oml-home-feature--external"
+              href="https://tabs.omusiclab.com/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Basic Tabs Generator (opens in a new tab)"
+            >
+              <h3 class="oml-home-feature-title">
+                <span>Basic Tabs Generator</span>
+                <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              </h3>
+              <p>
+                Scratch out ideas quickly with a simple tabs surface: write, tweak, and share lightweight sheets before you dive into full notation.
+              </p>
+            </a>
+            <a
+              class="oml-home-feature oml-home-feature--external"
+              href="https://musictools.chiedimla.com/chord-diagram-generator/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Simple guitar and ukulele chord diagram finder (opens in a new tab)"
+            >
+              <h3 class="oml-home-feature-title">
+                <span>Simple guitar &amp; ukulele chord diagram finder</span>
+                <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              </h3>
+              <p>
+                Look up guitar and ukulele chord diagrams quickly — a lightweight finder from the early omusiclab toolkit.
+              </p>
+            </a>
+            <a
+              class="oml-home-feature oml-home-feature--external"
+              href="https://musictools.chiedimla.com/tabs-generator/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Simple guitar and ukulele tabs editor (opens in a new tab)"
+            >
+              <h3 class="oml-home-feature-title">
+                <span>Simple guitar &amp; ukulele tabs editor</span>
+                <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              </h3>
+              <p>
+                Draft guitar and ukulele tabs in a simple editor — jot down fingerings and lines without a full notation suite.
+              </p>
+            </a>
+            <a
+              class="oml-home-feature oml-home-feature--external"
+              href="https://musictools.chiedimla.com/scale-generator/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Guitar and ukulele music scale generator (opens in a new tab)"
+            >
+              <h3 class="oml-home-feature-title">
+                <span>Guitar &amp; ukulele music scale generator</span>
+                <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              </h3>
+              <p>
+                Explore scales on guitar and ukulele fingerboards — pick a root and pattern to see notes laid out on the fretboard.
+              </p>
+            </a>
+            <a class="oml-home-feature" href="#home" aria-label="Piano chord viewer">
+              <h3>Piano chord viewer</h3>
+              <p>
+                See piano chords on a virtual keyboard — handy for checking spellings and inversions away from the fretboard.
+              </p>
+            </a>
+          </div>
+        </article>
+
+        <article class="site-view site-view--contributors" id="view-contributors" aria-label="Contributors" hidden>
+          <header class="site-page-header site-page-intro">
+            <p class="site-eyebrow">omusiclab</p>
+            <h1>Contributors</h1>
+            <p class="site-lead">
+              People who helped build omusiclab — the website, tools, and learning resources you find here.
+            </p>
+          </header>
+
+          <div class="oml-home-feature-grid">
+            <a
+              class="oml-home-feature oml-home-feature--external oml-contributor-card"
+              href="https://chiedev.github.io/portfolio/about"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="chiedev (opens in a new tab)"
+            >
+              <div class="oml-badge-row">
+                <span class="oml-badge oml-badge--green">Main contributor</span>
+                <span class="oml-badge oml-badge--cyan">Technical</span>
+              </div>
+              <h3 class="oml-home-feature-title">
+                <span>chiedev</span>
+                <svg class="oml-icon oml-home-feature-external-icon" aria-hidden="true"><use href="#icon-external"/></svg>
+              </h3>
+              <p>
+                The primary contributor behind omusiclab — the website, the tools, and everything that keeps this project going.
+              </p>
+            </a>
+            <article class="oml-home-feature oml-contributor-card">
+              <div class="oml-badge-row">
+                <span class="oml-badge oml-badge--purple">Designer</span>
+                <span class="oml-badge oml-badge--rose">Musician</span>
+              </div>
+              <h3>Rose</h3>
+              <p>
+                Contributed the omusiclab logo design and some hymn arrangements for the HymnalCast project.
+              </p>
+            </article>
+          </div>
+        </article>
+      </main>
+    </div>
+
+    <footer class="kit-footer-bar">
+      <p class="kit-footer-note">© 2017 – <span id="footer-year"></span> omusiclab</p>
+    </footer>
+
+    <script>
+      document.getElementById("footer-year").textContent = String(new Date().getFullYear());
+
+      (function initPrimaryNav() {
+        const tabs = Array.from(document.querySelectorAll("[data-site-tab]"));
+        const views = {
+          home: document.getElementById("view-home"),
+          legacy: document.getElementById("view-legacy"),
+          contributors: document.getElementById("view-contributors"),
+        };
+        let activeTab = null;
+
+        const TAB_HASHES = {
+          home: "#home",
+          legacy: "#legacy",
+          contributors: "#contributors",
+        };
+
+        function resolveTab() {
+          const hash = location.hash.slice(1);
+          if (hash === "legacy" || hash === "contributors") return hash;
+          return "home";
+        }
+
+        function scrollToCollection() {
+          const target = document.getElementById("collection");
+          if (!target) return;
+          target.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        function activate(name) {
+          if (!views[name]) return;
+          tabs.forEach((el) => {
+            const on = el.dataset.siteTab === name;
+            el.classList.toggle("is-active", on);
+            el.setAttribute("aria-selected", on ? "true" : "false");
+            el.tabIndex = on ? 0 : -1;
+            if (on) el.setAttribute("aria-current", "page");
+            else el.removeAttribute("aria-current");
+          });
+          Object.keys(views).forEach((key) => {
+            if (views[key]) views[key].hidden = key !== name;
+          });
+        }
+
+        function syncFromHash() {
+          const hash = location.hash.slice(1);
+          const tab = resolveTab();
+          const expectedHash = TAB_HASHES[tab] || "#home";
+          if (hash !== "collection" && location.hash !== expectedHash) {
+            history.replaceState(null, "", `${location.pathname}${location.search}${expectedHash}`);
+          }
+          const changed = activeTab !== null && tab !== activeTab;
+          activate(tab);
+          if (hash === "collection") {
+            requestAnimationFrame(scrollToCollection);
+          } else if (changed) {
+            window.scrollTo(0, 0);
+          }
+          activeTab = tab;
+        }
+
+        window.addEventListener("hashchange", syncFromHash);
+        syncFromHash();
+      })();
+
+      (function initHeroParallax() {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+        const heroes = document.querySelectorAll("[data-hero-parallax]");
+        if (!heroes.length) return;
+
+        let ticking = false;
+        function update() {
+          const viewCenter = window.innerHeight * 0.5;
+          heroes.forEach((hero) => {
+            const rect = hero.getBoundingClientRect();
+            const delta = rect.top + rect.height * 0.5 - viewCenter;
+            hero.querySelectorAll("[data-parallax-speed]").forEach((photo) => {
+              const speed = parseFloat(photo.dataset.parallaxSpeed || "0.2");
+              const rotate = parseFloat(photo.dataset.rotate || "0");
+              const y = delta * speed;
+              photo.style.transform = `translate3d(0, ${y}px, 0) rotate(${rotate}deg)`;
+            });
+          });
+          ticking = false;
+        }
+        function requestUpdate() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
+        requestUpdate();
+      })();
+
+      (function initHeaderBrandOnScroll() {
+        const topbar = document.getElementById("site-topbar");
+        const homeView = document.getElementById("view-home");
+        const hero = document.querySelector(".oml-home-hero--wide");
+        const heroLogo = document.querySelector(".oml-home-hero--wide .oml-home-hero-logo-svg");
+        const wordmarkSlot = document.querySelector(".site-brand-wordmark");
+        if (!topbar || !homeView || !hero || !heroLogo || !wordmarkSlot) return;
+
+        const wordmark = heroLogo.cloneNode(true);
+        wordmark.removeAttribute("role");
+        wordmark.removeAttribute("aria-label");
+        wordmark.setAttribute("aria-hidden", "true");
+        wordmarkSlot.appendChild(wordmark);
+
+        let ticking = false;
+        function update() {
+          const onHome = !homeView.hidden;
+          topbar.classList.toggle("site-topbar--on-home", onHome);
+          if (!onHome) {
+            topbar.classList.remove("site-topbar--past-hero");
+            ticking = false;
+            return;
+          }
+          const pastHero = hero.getBoundingClientRect().bottom <= topbar.offsetHeight;
+          topbar.classList.toggle("site-topbar--past-hero", pastHero);
+          ticking = false;
+        }
+        function requestUpdate() {
+          if (ticking) return;
+          ticking = true;
+          requestAnimationFrame(update);
+        }
+
+        window.addEventListener("scroll", requestUpdate, { passive: true });
+        window.addEventListener("resize", requestUpdate);
+        window.addEventListener("hashchange", requestUpdate);
+        new MutationObserver(requestUpdate).observe(homeView, {
+          attributes: true,
+          attributeFilter: ["hidden"],
+        });
+        requestUpdate();
+      })();
+    </script>
+    <script
+      data-name="BMC-Widget"
+      data-cfasync="false"
+      src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+      data-id="chiedev"
+      data-description="Support me on Buy me a coffee!"
+      data-message=""
+      data-color="#40DCA5"
+      data-position="Right"
+      data-x_margin="18"
+      data-y_margin="18"
+    ></script>
+  </body>
+</html>
